@@ -41,11 +41,11 @@ export class SplashScreenComponent implements OnInit {
     
             setTimeout(() => {
                 this.isHidden = true;  // Nasconde il sipario
-            }, 3000); // 3000ms = 3 secondi
+            }, 10000); // 3000ms = 3 secondi
 
             setTimeout(() => {
                 this.isFadeAll = true;  // Nasconde il sipario
-            }, 3000); // 3000ms = 3 secondi
+            }, 10000); // 3000ms = 3 secondi
 
 
             const wordChangeObservable = interval(3000);
