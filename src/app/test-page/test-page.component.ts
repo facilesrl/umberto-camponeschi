@@ -6,13 +6,13 @@ import { ScrollManagerComponent } from '../scroll-manager/scroll-manager.compone
 import { RotateComponent } from '../rotate/rotate.component';
 
 @Component({
-    selector: 'app-home',
+    selector: 'app-test-page',
     standalone: true,
     imports: [SplashScreenComponent, PortfolioCategoryComponent, ZoomOutContainerComponent, RotateComponent, ScrollManagerComponent],
-    templateUrl: './home.component.html',
-    styleUrl: './home.component.css'
+    templateUrl: './test-page.component.html',
+    styleUrl: './test-page.component.css'
 })
-export class HomeComponent {
+export class TestPageComponent {
 
     currentStep: number = 0; // Valore iniziale dello step
 

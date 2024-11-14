@@ -1,0 +1,19 @@
+<app-rotate [current_step]="currentStep">
+    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Definisci il percorso circolare per il testo -->
+        <defs>
+            <path id="circlePath" d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" />
+        </defs>
+    
+        <!-- Crea il cerchio visibile -->
+        
+        <!-- Aggiungi il testo lungo il perimetro del cerchio -->
+        <text font-size="27" fill="#fbfbfb" letter-spacing="5">
+            <textPath class="serif-style-quicksand text-uppercase fw-lighter "href="#circlePath" startOffset="50%" text-anchor="middle">
+                Umberto • Camponeschi •
+            </textPath>
+        </text>
+      
+    </svg>
+</app-rotate>
+

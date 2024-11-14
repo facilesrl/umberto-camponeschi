@@ -1,4 +1,9 @@
 body {
     font-family: 'Hind', sans-serif;
 }
+
+.my-content{
+    max-height: 100vh!important;
+    overflow: hidden;
+}
   

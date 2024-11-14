@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { interval,Subscription } from 'rxjs';
+import { NameRotateComponent } from '../name-rotate/name-rotate.component';
 
 
 @Component({
     selector: 'app-splash-screen',
     standalone: true,
-    imports: [],
-    templateUrl: './splash-screen.component.html',
-    styleUrl: './splash-screen.component.css'
+    imports: [NameRotateComponent],
+    templateUrl: './splash-screen-2.component.html',
+    styleUrl: './splash-screen-2.component.css'
 })
 export class SplashScreenComponent implements OnInit {
 
@@ -44,7 +45,7 @@ export class SplashScreenComponent implements OnInit {
 
             setTimeout(() => {
                 this.isFadeAll = true;  // Nasconde il sipario
-            }, 20000); // 3000ms = 3 secondi
+            }, 3000); // 3000ms = 3 secondi
 
 
             const wordChangeObservable = interval(3000);
