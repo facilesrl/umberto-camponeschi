@@ -9,3 +9,15 @@
 .uc-navbar-height{
     height:6rem ;
 }
+
+.nav-item-font-properties li a{
+    font-family: "Roboto Condensed", sans-serif!important;
+    font-optical-sizing: auto;
+    font-weight: 200!important;
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+
+.nav-item a:hover{
+    color: #f93700!important;
+}
