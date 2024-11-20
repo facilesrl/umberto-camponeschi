@@ -5,11 +5,18 @@ import { ZoomOutContainerComponent } from '../zoom-out-container/zoom-out-contai
 import { ScrollManagerComponent } from '../scroll-manager/scroll-manager.component';
 import { RotateComponent } from '../rotate/rotate.component';
 import { InEvidenzaBoxComponent } from '../in-evidenza-box/in-evidenza-box.component';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
     selector: 'app-home',
     standalone: true,
-    imports: [SplashScreenComponent, PortfolioCategoryComponent, ZoomOutContainerComponent, RotateComponent, ScrollManagerComponent, InEvidenzaBoxComponent],
+    imports: [  SplashScreenComponent, 
+                PortfolioCategoryComponent, 
+                ZoomOutContainerComponent, 
+                RotateComponent, 
+                ScrollManagerComponent, 
+                InEvidenzaBoxComponent,
+                HeaderComponent],
     templateUrl: './home.component.html',
     styleUrl: './home.component.css'
 })
