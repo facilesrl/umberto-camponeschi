@@ -20,7 +20,7 @@ export class ZoomOutContainerComponent {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
         // Calcola il valore di scala per lo zoom out
-        const scaleValue = Math.max(1 - scrollTop / 1000, 0.8); // Limita lo zoom out al 70%
+        const scaleValue = Math.max(1 - scrollTop / 1000, 0.5); // Limita lo zoom out al 70%
 
         // Applica la trasformazione di scala all'immagine
 

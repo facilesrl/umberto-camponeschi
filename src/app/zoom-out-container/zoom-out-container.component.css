@@ -1,5 +1,5 @@
 .zoom-out-bg{
-    background-color: #dbd5c9;
+    
 }
 
 .container-img-zoom-out{
@@ -9,7 +9,7 @@
 }
 
 .zoom-out-image{
-    transition: 4000ms;
+    transition: 1000ms;
 }
 
 .img-bt-container{

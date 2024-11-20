@@ -2,6 +2,15 @@
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 body {
     font-family: 'Hind', sans-serif!important;
+    background-color: #ccbcaf;
+}
+
+html{
+    background-color: #ece5dc;
+}
+
+main{
+    background-color: #EDE9E1;
 }
 
 .serif-style-normal{
