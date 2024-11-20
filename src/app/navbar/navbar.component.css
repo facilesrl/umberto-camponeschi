@@ -21,3 +21,10 @@
 .nav-item a:hover{
     color: #f93700!important;
 }
+
+.position-properties{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20000;
+}

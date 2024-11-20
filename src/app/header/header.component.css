@@ -1,0 +1,16 @@
+.position-properties{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.img-container{
+    height: 45rem!important;
+    
+}
+
+.hero-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover!important;
+}

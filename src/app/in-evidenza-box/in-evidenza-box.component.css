@@ -14,3 +14,12 @@
     width: 100vh!important;
     height: auto;
 }
+
+.margin-t{
+    margin-top: 45rem;
+}
+
+.z-index-def{
+    position: relative;
+    z-index: 50;
+}
