@@ -11,17 +11,15 @@
 
 .splash-screen-b-b{
     position: relative;
-    background-color: black;
     z-index: 99;
     height: 100%;
     width: 100%;
-    transform: scaleX(2);
+    transform: scaleX(1);
     transform-origin: left;
 }
 
 .splash-screen-r-b{
     position: relative;
-    background-color: white;
     z-index: 99;
     height: 100%;
     width: 100%;
@@ -55,15 +53,15 @@
     background-color: transparent;
     z-index: 105;
     overflow: hidden;
-    height: auto;
-    width: auto;
+    height: 100%;
+    width: 100rem;
 }
 
 .splash-screen-title-box-position{
     position: absolute;
-    top:50%;
+    top:0;
     left: 50%;
-    transform: translate(-50%,50%);
+    transform: translate(-50%,0);
 }
 
 .fade-all{
@@ -88,4 +86,25 @@
 .slide-left{
     top:40%;
     transition: all 1s;
+}
+
+/******/
+.splash-screen-animation{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-90%);
+    
+}
+
+.splash-screen-subtitle{
+    z-index: 200;
+}
+
+
+.splash-screen-subtitle-position{
+    position: absolute;
+    top:80%;
+    left: 50%;
+    transform: translate(-50%,-10%);
 }

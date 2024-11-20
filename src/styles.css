@@ -1,6 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 body {
     font-family: 'Hind', sans-serif!important;
+    background-color: #ccbcaf;
+}
+
+html{
+    background-color: #ece5dc;
+}
+
+main{
+    background-color: #EDE9E1;
 }
 
 .serif-style-normal{
@@ -10,13 +20,58 @@ body {
     font-style: italic;
 }
 
-.serif-style-normal-2{
+.serif-style-bodoni{
 
-        font-family: "Bodoni Moda", serif;
-        font-optical-sizing: auto;
-        font-weight: 400;
-        font-style: normal;
-        font-style: italic;
+    font-family: "Bodoni Moda", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
       
 }
+
+.serif-style-quicksand{
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.bg-lighter{
+    background-color: #fbfbfb;
+}
+
+.bg-light{
+    background-color: #968b84;
+}
+
+.bg-dark{
+    background-color: #847b74;
+}
+
+.bg-darker{
+    background-color: #1f1d1f;
+}
+
+.color-lighter{
+    color:#fbfbfb;
+}
+
+.color-light{
+    color:#968b84;
+}
+
+.color-dark{
+    color: #847b74;
+}
+
+.color-darker{
+    color: #1f1d1f;
+}
+
+.color-middle{
+    color: #f93700;
+}
+
   
