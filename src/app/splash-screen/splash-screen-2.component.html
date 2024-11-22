@@ -1,50 +1,38 @@
+<div class="splash-screen splash-screen-position align-content-center d-flex" appSplashScreenBehavior>
+    <!--<div class="splash-screen-b-b" [class.b-b-close]="isHidden"></div>
+    <div class="splash-screen-r-b" [class.r-b-open]="isHidden"></div>-->
 
-<div class="splash-screen splash-screen-position align-content-center d-flex" [class.fade-all]="isFadeAll" >
-    <!--<div class="splash-screen-b-b" [class.b-b-close]="isHidden">
-    </div>
-    <div class="splash-screen-r-b" [class.r-b-open]="isHidden">
-    </div>-->
-    <div class="splash-screen-b-b">
-  
-          
-    </div>
     <div class="splash-screen-title-box splash-screen-title-box-position bg-dark">
         <div class="splash-screen-animation">
             <app-name-rotate></app-name-rotate>
         </div>
 
-        <div class="splash-screen-subtitle splash-screen-subtitle-position d-inline-block " >
+        <div class="splash-screen-subtitle splash-screen-subtitle-position d-inline-block">
             <div class="row color-middle">
-                <div class="col-6">
-                    <h2 class="display-5 serif-style-quicksand">
-                        Home
-                    </h2>
-                </div>
-                <div class="col-6 py-2 mt-n4">
-                    <h2 class=" display-5 text-uppercase serif-style-bodoni color-2">
-                        Fotografia
-                    </h2>
-                </div>
-                <div class="col-6 d-flex justify-content-center py-2">
-                    <h2 class=" display-5 text-uppercase serif-style-quicksand">
-                        Illuminotecnica
-                    </h2>
-                </div>
-                <div class="col-6 d-flex justify-content-end">
-                    <h2 class="display-5 serif-style-bodoni color-3">
-                        Teatro
-                    </h2>
-                </div>
+                    <ng-container *ngFor="let word of words ; let i = index">
+                        <div *ngIf ="i==0 || i==3" class="col-6">
+                            <h2 class="display-5 serif-style-quicksand">
+                                {{ word }}
+                            </h2>
+                        </div>
+                        <div *ngIf ="i!=0 && i!=3" class="col-6">
+                            <h2 class="display-5 serif-style-bodoni">
+                                {{ word }}
+                            </h2>
+                        </div>
+
+                    </ng-container>
             </div>
         </div>
-       <!--
-        <div class="splash-screen-subtitle-fade d-inline-block serif-style-normal-2" [class.slide-left]="isSliding" [class.position-out]="isPositionOut">
+
+        <!-- Parola che cambia -->
+         <!--
+        <div class="splash-screen-subtitle-fade d-inline-block serif-style-normal-2" 
+             [class.slide-left]="isSliding" 
+             [class.position-out]="isPositionOut">
             <h2 class="display-5 text-uppercase">
-                {{currentWord}}
+                {{ currentWord }}
             </h2>
         </div>-->
-    
     </div>
-    
 </div>
-
