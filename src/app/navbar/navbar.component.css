@@ -1,3 +1,10 @@
+.navbar-scrolled{
+    height: 3rem!important;
+}
+.navbar-open{
+    height: auto;
+    transition: 0.5s!important;
+}
 .uc-navbar-bg{
    
 }
@@ -49,9 +56,10 @@
 
 .position-properties{
     position: fixed;
-    top: 0;
+    top: 0px;
     left: 0;
     z-index: 20000;
+    margin-top: 30px;
 }
 
 .has-submenu:hover .submenu{
@@ -70,4 +78,13 @@
     transform: scaleY(0);
     transform-origin: top;
     transition: all 0.5s;
+}
+
+.social-row{
+    position: fixed;
+    top: 0px;
+    height: 30px;
+    width: 100%;
+    background-color: #f93700;
+    z-index:10000000000!important;
 }
