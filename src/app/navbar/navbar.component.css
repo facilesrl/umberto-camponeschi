@@ -17,12 +17,17 @@
     height:6rem ;
 }
 
-.nav-item-font-properties li a{
+.nav-item-font-properties{
     font-family: "Roboto Condensed", sans-serif!important;
     font-optical-sizing: auto;
     font-weight: 200!important;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     font-weight: 300;
+    transition: 0.5s;
+}
+
+.nav-item-properties-scrolled{
+    font-size: 1.2rem!important;
 }
 
 .nav-item a{
@@ -52,14 +57,16 @@
     transform-origin: right;
 }
 
-
-
 .position-properties{
     position: fixed;
     top: 0px;
     left: 0;
     z-index: 20000;
     margin-top: 30px;
+}
+
+.position-properties-scrolled{
+    margin-top: 0px;
 }
 
 .has-submenu:hover .submenu{
@@ -80,6 +87,10 @@
     transition: all 0.5s;
 }
 
+.submenu-reposition{
+    top:3rem!important;
+}
+
 .social-row{
     position: fixed;
     top: 0px;
@@ -87,4 +98,9 @@
     width: 100%;
     background-color: #f93700;
     z-index:10000000000!important;
+    transition: 0.5s;
+}
+
+.social-row-scrolled{
+    height: 0!important;
 }
