@@ -7,3 +7,7 @@ body {
     overflow: hidden;
 }
   
+#app-navbar{
+    position: relative;
+    z-index: 1!important;
+}

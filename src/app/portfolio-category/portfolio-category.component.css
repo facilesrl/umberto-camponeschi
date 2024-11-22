@@ -23,4 +23,10 @@ img {
 .img-container:hover img {
     transform: scale(1.2); /* Esegue uno zoom del 20% */
 }
+
+#portfolio{
+    position:inherit;
+    z-index: inherit!important;
+}
+
   
