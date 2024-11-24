@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterLink } from '@angular/router';
 import { ScrollManagerComponent } from './scroll-manager/scroll-manager.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,NavbarComponent,ScrollManagerComponent],
+  imports: [RouterOutlet,NavbarComponent,ScrollManagerComponent,FontAwesomeModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
