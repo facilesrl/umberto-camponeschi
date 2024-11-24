@@ -118,3 +118,7 @@
 .uc-icon-dim{
     font-size: 1.2rem;
 }
+
+.social-icons-container-scrolled{
+    display: none!important;
+}
