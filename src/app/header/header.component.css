@@ -5,13 +5,13 @@
 }
 
 .img-container{
-    height: 45rem!important;
+    height: 50rem!important;
     
 }
 
 .hero-image{
     width: auto;
-    height: 45rem!important;
+    height: 50rem!important;
     object-fit: cover!important;
 }
 
