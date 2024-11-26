@@ -1,4 +1,6 @@
 
 <app-splash-screen></app-splash-screen>
-<app-header id="app-header"></app-header>
+<div [ngStyle]="{'width':'100%','height':'100%','position': 'absolute', 'top': '0', 'left': '0', 'transform': lazyScroll()}">
+    <app-header id="app-header" [ngStyle]="{'transform': lazyScroll()}"></app-header>
+</div>
 <app-in-evidenza-box></app-in-evidenza-box>
