@@ -1,0 +1,15 @@
+<app-scroll-manager ></app-scroll-manager>
+
+<div class="row-container d-flex" >
+    <div *ngFor="let box of boxesArray; let i = index" class="row my-row w-100" [ngStyle]="{'left':getInitialPosition(i),'transform':getTranslateXRow()}">
+        <div class="col-6 my-col bebas-neue-regular description d-flex align-items-end text-justify text-uppercase px-5">
+          
+            Ho mosso i primi passi occupandomi di fotografia, per poi sentire la necessità irrefrenabile di “disegnare con la luce”.
+        
+
+        </div>
+        <!-- Colonna 2 -->
+        <div class="col-6 my-col image"></div>
+    </div>
+</div>
+  

@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { SplashScreenComponent } from '../splash-screen/splash-screen.component';
-import { PortfolioCategoryComponent } from '../portfolio-category/portfolio-category.component';
-import { ZoomOutContainerComponent } from '../zoom-out-container/zoom-out-container.component';
 import { ScrollManagerComponent } from '../scroll-manager/scroll-manager.component';
-import { RotateComponent } from '../rotate/rotate.component';
 import { InEvidenzaBoxComponent } from '../in-evidenza-box/in-evidenza-box.component';
 import { HeaderComponent } from '../header/header.component';
 
@@ -11,9 +8,6 @@ import { HeaderComponent } from '../header/header.component';
     selector: 'app-home',
     standalone: true,
     imports: [  SplashScreenComponent, 
-                PortfolioCategoryComponent, 
-                ZoomOutContainerComponent, 
-                RotateComponent, 
                 ScrollManagerComponent, 
                 InEvidenzaBoxComponent,
                 HeaderComponent],
