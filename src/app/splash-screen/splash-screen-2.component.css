@@ -1,6 +1,8 @@
 .splash-screen{
     height: 100vh;
     width: 100%;
+    transition: 0.5s;
+    z-index: 300000000000000;
 }
 
 .splash-screen-position{
@@ -15,7 +17,9 @@
     height: 100%;
     width: 100%;
     transform: scaleX(1);
+    transform: scaleY(1);
     transform-origin: left;
+    transition: transform 0.5s;
 }
 
 .splash-screen-r-b{
@@ -40,7 +44,7 @@
 .splash-screen-title h1{
     position: relative;
     -webkit-background-clip: text;
-    z-index: 106;
+    z-index: 300000000000002;
 }
 
 .splash-screen-position-box{
@@ -51,7 +55,7 @@
 
 .splash-screen-title-box{
     background-color: transparent;
-    z-index: 105;
+    z-index: 300000000000001;
     overflow: hidden;
     height: 100%;
     width: 100rem;
@@ -65,8 +69,7 @@
 }
 
 .fade-all{
-    transform: scaleY(0);
-    transition: transform 3s;
+    height: 0!important;
 }
 
 .splash-screen-subtitle-fade{
@@ -98,7 +101,7 @@
 }
 
 .splash-screen-subtitle{
-    z-index: 200;
+    z-index: 300000000000003;
 }
 
 
