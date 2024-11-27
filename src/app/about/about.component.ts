@@ -24,8 +24,9 @@ export class AboutComponent {
 
     initialTranslateX: number[] = [];
 
-    currentTranslateY: number = 0;
     textHeight: number = 612;
+    currentTranslateY: number = this.textHeight;
+    
     scrollTextFlag:boolean = false;
 
 
@@ -58,7 +59,7 @@ export class AboutComponent {
         const rect = target.getBoundingClientRect();  // Otteniamo le dimensioni relative alla finestra
 
         // Verifica se l'elemento è visibile verticalmente nella finestra
-        if (rect.top<250&& rect.top>-250) {
+        if (rect.top<200&& rect.top>-200) {
             console.log('Elemento completamente visibile nella finestra (verticalmente)!');
             console.log('recttop', rect.top);
             console.log('rectbottom', rect.bottom);
@@ -102,8 +103,14 @@ export class AboutComponent {
 
         
             if(this.containerFlagVisible.value){
-              
+                if(!this.scrollTextFlag){
+                    event.preventDefault();
                     this.scrollText(scrollDelta);
+                }
+                else{
+                    this.scrollText(scrollDelta);
+                }
+                
                 
             
             }
@@ -121,13 +128,17 @@ export class AboutComponent {
    
 
     setTranslateY(target:ElementRef,scrollDelta:number){
-        if(this.currentTranslateY>= - this.textHeight){
-            this.currentTranslateY -=scrollDelta*3;
-            //this.scrollTextFlag=false;
+        if(this.currentTranslateY<= this.textHeight){
+            this.currentTranslateY-=scrollDelta*1.2;
+            this.scrollTextFlag=false;
         }
-        else{
-            this.currentTranslateY = -this.textHeight
-            //this.scrollTextFlag=true;
+        else if(this.currentTranslateY> this.textHeight){
+            this.currentTranslateY = this.textHeight
+            this.scrollTextFlag=true;
+        }
+        if(this.currentTranslateY<=0){
+            this.currentTranslateY =0;
+            this.scrollTextFlag=true;
         }
     }
 

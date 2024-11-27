@@ -19,7 +19,6 @@
     padding: 0rem 3rem 4rem 3rem;
     font-size: 3rem;
     font-weight: 300;
-
 }
 
 .image{
@@ -34,7 +33,12 @@
 }
 
 .new-container .description{
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-weight: 400;
+    text-transform: capitalize;
     position: absolute;
-    top:90vh;
+    top:0vh;
+    background-color: transparent;
+    color: black;
+    transform: translateY(612px);
 }
