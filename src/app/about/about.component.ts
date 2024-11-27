@@ -1,7 +1,7 @@
-import { Component,HostListener  } from '@angular/core';
+import { Component, HostListener, ViewChild, ElementRef, viewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollManagerComponent } from '../scroll-manager/scroll-manager.component';
-
+import { AfterViewInit } from '@angular/core';
 
 @Component({
     selector: 'app-about',
@@ -13,7 +13,7 @@ import { ScrollManagerComponent } from '../scroll-manager/scroll-manager.compone
 export class AboutComponent {
 
     currentStep: number = 0;
-    
+
     boxes: number = 4;
     boxesArray: any[] = Array.from({ length: this.boxes });
     rowWidth: number = 1439;
@@ -23,6 +23,10 @@ export class AboutComponent {
     maxTranslateX: number = -(this.boxes - 1) * this.rowWidth;  // Limite inferiore;;
 
     initialTranslateX: number[] = [];
+
+    currentTranslateY: number = 0;
+    textHeight: number = 612;
+    scrollTextFlag:boolean = false;
 
 
     constructor() {
@@ -34,31 +38,104 @@ export class AboutComponent {
             this.initialTranslateX.push(i * this.rowWidth);  // Ogni riga ha una posizione iniziale differente
         }
     }
+    @ViewChild('scrollableDiv') scrollableDiv!: ElementRef;
+    @ViewChild('scrollableText') scrollableText!: ElementRef;
+    @ViewChild('scrollableTextContainer')scrollableTextContainer!:ElementRef
 
-    inputScrollStep(scrollStepChanged:number){
+    ngAfterViewInit() {
+        this.checkIfElementIsInView(this.scrollableTextContainer,this.containerRowFlagVisible);
+    }
+
+    onScroll(event: Event) {
+       
+        this.checkIfElementIsInView(this.scrollableTextContainer,this.containerFlagVisible);
+    }
+    containerFlagVisible= {value:false};
+    containerRowFlagVisible={value:false};
+    // Funzione per verificare se l'elemento è visibile nella finestra del browser
+    checkIfElementIsInView(element:ElementRef,elementScrollFlag:{value:boolean}) {
+        const target = element.nativeElement;
+        const rect = target.getBoundingClientRect();  // Otteniamo le dimensioni relative alla finestra
+
+        // Verifica se l'elemento è visibile verticalmente nella finestra
+        if (rect.top<250&& rect.top>-250) {
+            console.log('Elemento completamente visibile nella finestra (verticalmente)!');
+            console.log('recttop', rect.top);
+            console.log('rectbottom', rect.bottom);
+            
+            elementScrollFlag.value=true;
+            console.log('visibilità container',elementScrollFlag.value);
+        
+        } else {
+            console.log('recttop', rect.top);
+            console.log('rectbottom', rect.bottom);
+            console.log('elemento nascosto');
+            elementScrollFlag.value=false;
+            
+            console.log('visibilità container',elementScrollFlag.value);
+        } 
+
+    }
+
+    inputScrollStep(scrollStepChanged: number) {
         this.currentStep = scrollStepChanged;
     }
+
 
     // Ascoltiamo l'evento di scroll con la rotella del mouse
     @HostListener('wheel', ['$event'])
     onWheelScroll(event: WheelEvent) {
-        
+
         const scrollDelta = event.deltaY;  // Movimento verticale della rotella
-        
-        if(this.currentTranslateXRow>this.maxTranslateX && this.currentStep==0){
+        this.onScroll(event);
+
+        if (this.currentTranslateXRow > this.maxTranslateX && this.currentStep == 0) {
             event.preventDefault();  // Impedisce lo scroll verticale della pagina
             this.setTranslateX(scrollDelta);
         }
-        else if(this.currentTranslateXRow==this.maxTranslateX && this.currentStep==0){
-            if(scrollDelta<0){
+        else if (this.currentTranslateXRow == this.maxTranslateX && this.currentStep == 0) {
+            if (scrollDelta < 0) {
                 event.preventDefault();  // Impedisce lo scroll verticale della pagina
                 this.setTranslateX(scrollDelta);
             }
         }
+
+        
+            if(this.containerFlagVisible.value){
+              
+                    this.scrollText(scrollDelta);
+                
+            
+            }
+
+
+        
+            
+
     }
 
+    scrollText(scrollDelta:number){
+        const target = this.scrollableText.nativeElement;
+        this.setTranslateY(target,scrollDelta);
+    }
+   
 
-    setTranslateX(scrollDelta:number){
+    setTranslateY(target:ElementRef,scrollDelta:number){
+        if(this.currentTranslateY>= - this.textHeight){
+            this.currentTranslateY -=scrollDelta*3;
+            //this.scrollTextFlag=false;
+        }
+        else{
+            this.currentTranslateY = -this.textHeight
+            //this.scrollTextFlag=true;
+        }
+    }
+
+    getTranslateY(): string {
+        return `translateY(${this.currentTranslateY}px)`;  // Traslazione orizzontale delle righe
+    }
+
+    setTranslateX(scrollDelta: number) {
         // Aggiorniamo la traslazione orizzontale delle righe in base allo scroll
         this.currentTranslateXRow -= scrollDelta / 4;  // Aggiungi deltaY per uno scroll continu
         // Limitiamo la traslazione per evitare che le righe si spostino troppo oltre i limiti

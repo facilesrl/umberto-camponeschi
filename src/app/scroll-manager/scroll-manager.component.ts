@@ -30,7 +30,7 @@ export class ScrollManagerComponent {
     
 
     getStep(scroll_position:number): number {
-
+    
         let step = 0;
         step = this.getFloor(scroll_position);
         return step;
