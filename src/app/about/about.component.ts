@@ -4,11 +4,12 @@ import { ScrollManagerComponent } from '../scroll-manager/scroll-manager.compone
 import { AfterViewInit } from '@angular/core';
 import { StyleManagerService } from '../style-manager.service';
 import { ElementPositionService } from '../element-position.service';
+import { CarouselScrollComponent } from '../carousel-scroll/carousel-scroll.component';
 
 @Component({
     selector: 'app-about',
     standalone: true,
-    imports: [ScrollManagerComponent, CommonModule],
+    imports: [ScrollManagerComponent, CommonModule,CarouselScrollComponent],
     templateUrl: './about.component.html',
     styleUrls: ['./about.component.css']
 })
