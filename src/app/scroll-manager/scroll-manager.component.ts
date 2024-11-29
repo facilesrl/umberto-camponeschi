@@ -15,7 +15,7 @@ export class ScrollManagerComponent {
 
     constructor() {
         this.scroll_position = 0;
-        this.scroll_step = 16;
+        this.scroll_step = 8;
         this.current_step=0;
     }
 
@@ -30,7 +30,7 @@ export class ScrollManagerComponent {
     
 
     getStep(scroll_position:number): number {
-
+    
         let step = 0;
         step = this.getFloor(scroll_position);
         return step;

@@ -1,15 +1,42 @@
-<app-scroll-manager ></app-scroll-manager>
+<app-scroll-manager (scrollStepChanged)="inputScrollStep($event)"></app-scroll-manager>
 
-<div class="row-container d-flex" >
+<div #scrollableDiv  class="row-container d-flex" >
     <div *ngFor="let box of boxesArray; let i = index" class="row my-row w-100" [ngStyle]="{'left':getInitialPosition(i),'transform':getTranslateXRow()}">
         <div class="col-6 my-col bebas-neue-regular description d-flex align-items-end text-justify text-uppercase px-5">
           
             Ho mosso i primi passi occupandomi di fotografia, per poi sentire la necessità irrefrenabile di “disegnare con la luce”.
         
-
         </div>
         <!-- Colonna 2 -->
         <div class="col-6 my-col image"></div>
     </div>
+</div>
+
+<div #scrollableTextContainer class="container-fluid new-container">
+    <div class="row">
+        <div #scrollableText [ngClass]="'step-' + currentStep" class="col-7 description bebas-neue-regular">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean malesuada gravida sapien eu molestie. Sed consequat libero eget leo malesuada tristique. Ut sodales vitae elit vitae lobortis. Praesent ac bibendum sem. Aliquam non neque tempor, venenatis tellus nec, iaculis mi. Morbi eget tincidunt urna, ac vehicula elit. Vestibulum in mattis mi. Sed id congue ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec eget tristique sem.
+
+        </div>
+        <div class="col-5"></div>
+    </div>
+</div>
+
+<div class="container-fluid new-container" style="background-color: blueviolet;">
+
+</div>
+
+<app-carousel-scroll></app-carousel-scroll>
+<div class="container-fluid new-container" style="background-color: blueviolet;">
+
+</div>
+<div class="container-fluid new-container" style="background-color: blueviolet;">
+
+</div>
+<div class="container-fluid new-container" style="background-color: blueviolet;">
+
+</div>
+<div class="container-fluid new-container" style="background-color: blueviolet;">
+
 </div>
   
