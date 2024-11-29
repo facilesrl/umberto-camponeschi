@@ -1,6 +1,8 @@
 <app-scroll-manager (scrollStepChanged)="inputScrollStep($event)"></app-scroll-manager>
+<div style="overflow: hidden!important;" >
 
-<div #scrollableDiv  class="row-container d-flex" >
+
+<div #scrollableDiv  class="row-container d-flex" style="overflow: hidden!important;" >
     <div *ngFor="let box of boxesArray; let i = index" class="row my-row w-100" [ngStyle]="{'left':getInitialPosition(i),'transform':getTranslateXRow()}">
         <div class="col-6 my-col bebas-neue-regular description d-flex align-items-end text-justify text-uppercase px-5">
           
@@ -39,4 +41,4 @@
 <div class="container-fluid new-container" style="background-color: blueviolet;">
 
 </div>
-  
+</div>

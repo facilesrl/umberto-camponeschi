@@ -3,7 +3,9 @@
 body {
     font-family: 'Hind', sans-serif!important;
     background-color: whitesmoke;
+    overflow-x: hidden; /* Rimuove lo scroll orizzontale dalla pagina */
 }
+
 
 html{
     background-color: whitesmoke;

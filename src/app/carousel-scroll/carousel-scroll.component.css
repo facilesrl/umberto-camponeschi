@@ -3,4 +3,9 @@
     width: 300px;
     background-color: black;
     margin: 5px 5px 5px 5px;
+   
+}
+
+.test-img-container{
+    overflow: hidden!important;
 }

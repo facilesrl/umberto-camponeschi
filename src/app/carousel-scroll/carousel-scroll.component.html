@@ -1,6 +1,8 @@
 <p>carousel-scroll works!</p>
 
-<div *ngIf="totalItems!=0" class="container-fluid px-5 test-img-container d-flex" style="height: 45rem!important;">
+<div *ngIf="totalItems!=0" class="container-fluid px-5 w-100" style="height: 45rem!important;">
+    <div class="test-img-container d-flex w-100">
+
     
         <ng-container *ngFor="let item of items">
           <div>
@@ -8,5 +10,5 @@
             <p>Slide {{item +1}}</p>
           </div>
         </ng-container>
-   
+      </div>
 </div>
