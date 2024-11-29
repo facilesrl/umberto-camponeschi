@@ -1,12 +1,16 @@
 <p>carousel-scroll works!</p>
 
-<div *ngIf="totalItems!=0" class="container-fluid px-5 test-img-container d-flex" style="height: 45rem!important;">
-    
-        <ng-container *ngFor="let item of items">
-          <div>
-            <img class="test-carousel"  alt="">
-            <p>Slide {{item +1}}</p>
-          </div>
-        </ng-container>
-   
+<div *ngIf="totalItems != 0" class="container-fluid px-5 w-100" style="height: 45rem!important; overflow-x: hidden;">
+    <!-- Contenitore per lo scroll -->
+    <div #scrollCarousel class="test-img-container d-flex" style=" white-space: nowrap;">
+        <!-- Contenitore traslabile -->
+        <div #carouselContent class="d-flex" style="transition: transform 0.3s ease;">
+            <ng-container *ngFor="let item of items">
+                <div>
+                    <img class="test-carousel" alt="">
+                    <p>Slide {{ item + 1 }}</p>
+                </div>
+            </ng-container>
+        </div>
+    </div>
 </div>
