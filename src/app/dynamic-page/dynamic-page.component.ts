@@ -1,7 +1,8 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef, Type } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef, Type, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DynamicComponentRegistry } from '../dynamic.page.registry'; // Assicurati che il percorso sia corretto
 import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dynamic-page',
@@ -10,29 +11,33 @@ import { CommonModule } from '@angular/common';
   templateUrl: './dynamic-page.component.html',
   styleUrls: ['./dynamic-page.component.css']
 })
-export class DynamicPageComponent implements OnInit, AfterViewInit {
+export class DynamicPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  componentName: string | null = null;
+  componentName: string  = '';
   @ViewChild('dynamicContainer', { read: ViewContainerRef }) container!: ViewContainerRef;
+  private routeSub: Subscription = new Subscription();
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    // Ottieni il parametro dalla route, che ora è il nome della pagina
-    this.route.params.subscribe(params => {
+    // Ascolta i cambiamenti della rotta e aggiorna il componente
+    this.routeSub = this.route.params.subscribe(params => {
       this.componentName = params['componentName']; // 'componentName' è in realtà il nome della pagina
       console.log('Parametro componentName:', this.componentName);
+      this.loadComponents(this.componentName);  // Carica i componenti quando il parametro è disponibile
     });
   }
 
   ngAfterViewInit(): void {
-    if (!this.container) {
-      console.error('Dynamic container non inizializzato');
-    } else {
-      console.log('Dynamic container inizializzato correttamente.');
-      if (this.componentName) {
-        this.loadComponents(this.componentName); // Carica i componenti per il nome della pagina
-      }
+    if (this.componentName) {
+      this.loadComponents(this.componentName);  // Carica il componente iniziale se necessario
+    }
+  }
+
+  ngOnDestroy(): void {
+    // Pulisci l'abbonamento quando il componente viene distrutto
+    if (this.routeSub) {
+      this.routeSub.unsubscribe();
     }
   }
 
