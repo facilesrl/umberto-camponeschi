@@ -15,7 +15,7 @@ export class ScrollManagerComponent {
 
     constructor() {
         this.scroll_position = 0;
-        this.scroll_step = 16;
+        this.scroll_step = 8;
         this.current_step=0;
     }
 

@@ -1,7 +1,9 @@
-import { Component, HostListener, ViewChild, ElementRef, viewChild } from '@angular/core';
+import { Component, HostListener, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollManagerComponent } from '../scroll-manager/scroll-manager.component';
 import { AfterViewInit } from '@angular/core';
+import { StyleManagerService } from '../style-manager.service';
+import { ElementPositionService } from '../element-position.service';
 
 @Component({
     selector: 'app-about',
@@ -14,7 +16,7 @@ export class AboutComponent {
 
     currentStep: number = 0;
 
-    boxes: number = 4;
+    boxes: number = 2;
     boxesArray: any[] = Array.from({ length: this.boxes });
     rowWidth: number = 1439;
     currentTranslateXRow: number = 0;
@@ -26,11 +28,14 @@ export class AboutComponent {
 
     textHeight: number = 612;
     currentTranslateY: number = this.textHeight;
-    
-    scrollTextFlag:boolean = false;
 
+    scrollTextFlag: boolean = false;
+    positionScrollableTextContainer: number = 0;
 
-    constructor() {
+    @ViewChild('scrollableDiv') scrollableDiv!: ElementRef;
+    @ViewChild('scrollableText') scrollableText!: ElementRef;
+    @ViewChild('scrollableTextContainer') scrollableTextContainer!: ElementRef;
+    constructor(private styleManager: StyleManagerService, private elementPositionCalculator: ElementPositionService,private renderer: Renderer2) {
         // Calcola il limite massimo di traslazione per i box
         this.maxTranslateX = -(this.boxes - 1) * this.rowWidth;
 
@@ -38,57 +43,44 @@ export class AboutComponent {
         for (let i = 0; i < this.boxes; i++) {
             this.initialTranslateX.push(i * this.rowWidth);  // Ogni riga ha una posizione iniziale differente
         }
-    }
-    @ViewChild('scrollableDiv') scrollableDiv!: ElementRef;
-    @ViewChild('scrollableText') scrollableText!: ElementRef;
-    @ViewChild('scrollableTextContainer')scrollableTextContainer!:ElementRef
 
+    }
+    total_steps:number = 300;
+    initial_step: number=0;
+    final_step:number = 0;
+
+    position: { top: number, left: number } = { top: 0, left: 0 };
+    stepPosition: { position: { top: number; left: number; }; initialStep:number; finalStep:number}={ position: { top: 0, left: 0 },initialStep:0,finalStep:0};
+   
     ngAfterViewInit() {
-        this.checkIfElementIsInView(this.scrollableTextContainer,this.containerRowFlagVisible);
-    }
+        // Verifica se l'elemento scrollabile è presente
 
-    onScroll(event: Event) {
-       
-        this.checkIfElementIsInView(this.scrollableTextContainer,this.containerFlagVisible);
-    }
-    containerFlagVisible= {value:false};
-    containerRowFlagVisible={value:false};
-    // Funzione per verificare se l'elemento è visibile nella finestra del browser
-    checkIfElementIsInView(element:ElementRef,elementScrollFlag:{value:boolean}) {
-        const target = element.nativeElement;
-        const rect = target.getBoundingClientRect();  // Otteniamo le dimensioni relative alla finestra
-
-        // Verifica se l'elemento è visibile verticalmente nella finestra
-        if (rect.top<200&& rect.top>-200) {
-            console.log('Elemento completamente visibile nella finestra (verticalmente)!');
-            console.log('recttop', rect.top);
-            console.log('rectbottom', rect.bottom);
-            
-            elementScrollFlag.value=true;
-            console.log('visibilità container',elementScrollFlag.value);
-        
-        } else {
-            console.log('recttop', rect.top);
-            console.log('rectbottom', rect.bottom);
-            console.log('elemento nascosto');
-            elementScrollFlag.value=false;
-            
-            console.log('visibilità container',elementScrollFlag.value);
-        } 
-
+        if (this.scrollableTextContainer) {
+            // Creare e applicare dinamicamente il tag <style>
+            this.position=this.elementPositionCalculator.getElementPosition(this.scrollableTextContainer);
+            console.log(this.position,'posizione calcolata con il servizio');
+            this.stepPosition = this.elementPositionCalculator.getElementSteps(this.scrollableTextContainer);
+            console.log('stampa obj steposition', this.stepPosition);
+            console.log('stampo initial step in about',this.stepPosition.initialStep);
+            this.styleManager.createDynamicStyles(this.renderer,
+                                                this.total_steps,
+                                                this.stepPosition.initialStep - 90,
+                                                this.stepPosition.finalStep,
+                                                612,
+                                                0,
+                                                '');
+        }
     }
 
     inputScrollStep(scrollStepChanged: number) {
         this.currentStep = scrollStepChanged;
     }
 
-
     // Ascoltiamo l'evento di scroll con la rotella del mouse
     @HostListener('wheel', ['$event'])
     onWheelScroll(event: WheelEvent) {
 
         const scrollDelta = event.deltaY;  // Movimento verticale della rotella
-        this.onScroll(event);
 
         if (this.currentTranslateXRow > this.maxTranslateX && this.currentStep == 0) {
             event.preventDefault();  // Impedisce lo scroll verticale della pagina
@@ -101,50 +93,8 @@ export class AboutComponent {
             }
         }
 
-        
-            if(this.containerFlagVisible.value){
-                if(!this.scrollTextFlag){
-                    event.preventDefault();
-                    this.scrollText(scrollDelta);
-                }
-                else{
-                    this.scrollText(scrollDelta);
-                }
-                
-                
-            
-            }
-
-
-        
-            
-
     }
 
-    scrollText(scrollDelta:number){
-        const target = this.scrollableText.nativeElement;
-        this.setTranslateY(target,scrollDelta);
-    }
-   
-
-    setTranslateY(target:ElementRef,scrollDelta:number){
-        if(this.currentTranslateY<= this.textHeight){
-            this.currentTranslateY-=scrollDelta*1.2;
-            this.scrollTextFlag=false;
-        }
-        else if(this.currentTranslateY> this.textHeight){
-            this.currentTranslateY = this.textHeight
-            this.scrollTextFlag=true;
-        }
-        if(this.currentTranslateY<=0){
-            this.currentTranslateY =0;
-            this.scrollTextFlag=true;
-        }
-    }
-
-    getTranslateY(): string {
-        return `translateY(${this.currentTranslateY}px)`;  // Traslazione orizzontale delle righe
-    }
 
     setTranslateX(scrollDelta: number) {
         // Aggiorniamo la traslazione orizzontale delle righe in base allo scroll
