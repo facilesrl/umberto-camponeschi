@@ -51,7 +51,7 @@
               "aot": true, 
               "optimization": true, 
               "extractLicenses": true,
-              "baseHref": "/umberto-camponeschi/browser/"
+              "baseHref": "/umberto-camponeschi/"
             },
 
             "development": {
