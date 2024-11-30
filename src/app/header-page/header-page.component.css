@@ -1,4 +1,36 @@
 .header-page{
-    height: 25rem;
+    height: 20rem;
     background-color: yellow;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 6rem;
+}
+
+.page-title{
+    display: inline-block;
+    position: absolute;
+    top:100%;
+    left: 80%;
+    transform: translate(-100%,-50%);
+    z-index: 1;
+}
+
+.name{
+    width: 10rem;
+    position: absolute;
+    left: 20%;
+    top:50%;
+    transform: translate(-100%,-15%);
+    z-index: 1;
+}
+
+.page-title h2{
+    font-size: 8rem;
+    color: rgb(244, 228, 3);
+}
+
+.name h1{
+    font-size: 8rem;
+    color: white;
 }

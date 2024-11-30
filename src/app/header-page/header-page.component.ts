@@ -9,8 +9,6 @@ import { Component,Input } from '@angular/core';
 })
 export class HeaderPageComponent {
 
-  
-
-  @Input() pageName: string='';  // Riceve la stringa come input
+    @Input() pageName: string='';  // Riceve la stringa come input
 
 }
