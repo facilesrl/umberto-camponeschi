@@ -26,7 +26,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css"
             ],
             "scripts": []
           },
@@ -44,8 +45,15 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "sourceMap": false, 
+              "namedChunks": false, 
+              "aot": true, 
+              "optimization": true, 
+              "extractLicenses": true,
+              "baseHref": "/umberto-camponeschi/"
             },
+
             "development": {
               "optimization": false,
               "extractLicenses": false,

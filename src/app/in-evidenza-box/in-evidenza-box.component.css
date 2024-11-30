@@ -1,0 +1,25 @@
+.img-carousel{
+    height: 12rem!important;
+    width: 15rem!;
+    object-fit: cover!important;
+    object-position: center!important;
+}
+
+.overflow-hidden{
+    overflow: hidden!important;
+}
+
+#in-evidenza-background{
+    position: absolute;
+    width: 100vh!important;
+    height: auto;
+}
+
+.margin-t{
+    margin-top: 45rem;
+}
+
+.z-index-def{
+    position: relative;
+ 
+}

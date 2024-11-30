@@ -1,0 +1,124 @@
+#navabar{
+    
+}
+.navbar-scrolled{
+    height: 3rem!important;
+}
+.navbar-open{
+    height: auto;
+    transition: 0.5s!important;
+}
+.uc-navbar-bg{
+   
+}
+
+.uc-navbar-items-color{
+
+}
+
+.uc-navbar-height{
+    height:6rem ;
+}
+
+.nav-item-font-properties{
+    font-family: "Roboto Condensed", sans-serif!important;
+    font-optical-sizing: auto;
+    font-weight: 200!important;
+    font-size: 1.2rem;
+    font-weight: 300;
+    transition: 0.5s;
+}
+
+.nav-item-properties-scrolled{
+    font-size: 1.2rem!important;
+}
+
+.nav-item a{
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.nav-item a:hover{
+    color: #f93700!important;
+}
+
+.nav-item a::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0.1rem;
+    background-color: #f93700;
+    transition: 0.3s ease;
+}
+
+.nav-item a:hover::before{
+    width: 100%;
+    right: 0;
+    transform-origin: right;
+}
+
+.position-properties{
+    position: fixed;
+    top: 0px;
+    left: 0;
+    margin-top: 2.5rem;
+}
+
+.position-properties-scrolled{
+    margin-top: 0px;
+}
+
+.has-submenu:hover .submenu{
+    background-color: white!important;
+    transform: scaleY(1);
+}
+
+
+.submenu{
+    position: absolute;
+    top: 6rem!important;
+    left: 0;
+    height: auto!important;
+    width: 100%!important;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all 0.5s;
+}
+
+.submenu-reposition{
+    top:3rem!important;
+}
+
+.social-row{
+    position: fixed;
+    top: 0px;
+    left: 0;
+    height: 2.5rem;
+    width: 100%;
+    background-color: black;
+    transition: 0.5s;
+}
+
+.social-row-scrolled{
+    height: 0!important;
+}
+
+
+.uc-icon-color{
+    color: whitesmoke;
+}
+
+.uc-icon-pd{
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.uc-icon-dim{
+    font-size: 1.2rem;
+}
+
+.social-icons-container-scrolled{
+    display: none!important;
+}

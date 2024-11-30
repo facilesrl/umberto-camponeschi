@@ -1,0 +1,38 @@
+.position-properties{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.img-container{
+    height: 50rem!important;
+    
+}
+
+.hero-image{
+    width: auto;
+    height: 50rem!important;
+    object-fit: cover!important;
+}
+
+#header{
+    z-index: inherit!important;
+}
+
+.owl-dots .owl-dot span {
+    background-color: #000; /* Colore del pallino */
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+}
+
+.owl-dots{
+    height: 5rem!important;
+    z-index: 20000;
+}
+  
+.owl-dots .owl-dot.active span {
+    background-color: #FF0000; /* Colore del pallino attivo */
+}
+  

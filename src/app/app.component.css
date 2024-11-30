@@ -1,4 +1,13 @@
 body {
     font-family: 'Hind', sans-serif;
 }
+
+.my-content{
+    max-height: 100vh!important;
+    overflow: hidden;
+}
   
+#app-navbar{
+    position: relative;
+    z-index: 1!important;
+}

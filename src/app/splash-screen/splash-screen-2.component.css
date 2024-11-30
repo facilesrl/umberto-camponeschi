@@ -1,0 +1,113 @@
+.splash-screen{
+    height: 100vh;
+    width: 100%;
+    transition: 0.5s;
+    z-index: 300000000000000;
+}
+
+.splash-screen-position{
+    position:absolute;
+    top: 0;
+    left: 0;
+}
+
+.splash-screen-b-b{
+    position: relative;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    transform: scaleX(1);
+    transform: scaleY(1);
+    transform-origin: left;
+    transition: transform 0.5s;
+}
+
+.splash-screen-r-b{
+    position: relative;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+.b-b-close{
+    transform: scaleX(0);
+    transition: transform 2s;
+}
+
+.r-b-open{
+    transform: scaleX(2);
+    transition: transform 2s;
+}
+
+.splash-screen-title h1{
+    position: relative;
+    -webkit-background-clip: text;
+    z-index: 300000000000002;
+}
+
+.splash-screen-position-box{
+    position:absolute;
+    top: 0;
+    left: 0;
+}
+
+.splash-screen-title-box{
+    background-color: transparent;
+    z-index: 300000000000001;
+    overflow: hidden;
+    height: 100%;
+    width: 100rem;
+}
+
+.splash-screen-title-box-position{
+    position: absolute;
+    top:0;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
+.fade-all{
+    height: 0!important;
+}
+
+.splash-screen-subtitle-fade{
+    position: absolute;
+    top: 100%;
+}
+
+.splash-screen-subtitle-visible{
+    top:40%;
+    transition: all 2s 1s;
+}
+
+.position-out{
+    top:100%;
+}
+
+.slide-left{
+    top:40%;
+    transition: all 1s;
+}
+
+/******/
+.splash-screen-animation{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-90%);
+    
+}
+
+.splash-screen-subtitle{
+    z-index: 300000000000003;
+}
+
+
+.splash-screen-subtitle-position{
+    position: absolute;
+    top:80%;
+    left: 50%;
+    transform: translate(-50%,-10%);
+}

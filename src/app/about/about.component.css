@@ -1,0 +1,49 @@
+.row-container{
+    overflow-x: hidden;
+    overflow-y: auto!important;
+    height: 90vh;
+}
+
+.my-row{
+    position: absolute;
+}
+
+.my-col{
+    position: relative;
+    height: 90vh;
+}
+
+.description{
+    height: auto;
+    background-color: whitesmoke;
+    padding: 0rem 3rem 4rem 3rem;
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+.image{
+    background-color: whitesmoke;
+}
+
+.new-container{
+    height:100vh;
+    background-color: black;
+    position:relative;
+    top:0;
+}
+
+.new-container .description{
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    position: absolute;
+    top:0vh;
+    background-color: transparent;
+    color: whitesmoke;
+    transform: translateY(612px);
+    transition: transform 0.09s linear;
+
+}
+
+
+
