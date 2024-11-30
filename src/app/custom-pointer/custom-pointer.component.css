@@ -7,8 +7,7 @@
     pointer-events: none; /* Evita che il puntatore interferisca con gli eventi */
     transform: translate(-50%, -50%);
     z-index: 9000000000000000000000000;
-    
-    transition: 1s;
+    transition: 0.1s;
 }
 
 .pointer-core{
