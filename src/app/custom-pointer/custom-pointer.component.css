@@ -1,0 +1,21 @@
+.custom-pointer {
+    position: fixed;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    border: 1px solid black;
+    pointer-events: none; /* Evita che il puntatore interferisca con gli eventi */
+    transform: translate(-50%, -50%);
+    z-index: 9000000000000000000000000;
+    
+    
+}
+
+.pointer-core{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    mix-blend-mode: difference; /* Per un effetto visivamente interessante */
+}
+  
