@@ -12,10 +12,10 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
             <ul id="nav-items-list" class="navbar-nav my-2 my-lg-0 navbar-nav-scroll w-100 justify-content-evenly nav-item-font-properties" style="--bs-scroll-height: 100px;">
                 <!-- Usa solo un ngFor -->
-                 <!--
+                
                 <li class="nav-item d-flex">
                     <a routerLink="home" class="nav-link active uc-navbar-items-color" aria-current="page">Home</a>
-                </li>-->
+                </li>
                 <li *ngFor="let page of pages" class="nav-item d-flex" [ngClass]="{'has-submenu': page === 'menu'}">
                     <!-- Controllo con ngIf per differenziare 'menu' -->
                     <ng-container *ngIf="page === 'menu'">
