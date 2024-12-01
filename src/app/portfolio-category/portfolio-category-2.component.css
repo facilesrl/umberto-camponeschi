@@ -1,11 +1,12 @@
 .img-container{
     position: relative;
+    height: 25rem;
 }
 
 .img-big{
     position:relative ;
-    height: 38rem;
-    width: 32rem;
+    height: 100%;
+    width: 70%;
     background-color: blue;
     object-fit: cover;
 }
@@ -14,8 +15,8 @@
     position: absolute;
     bottom: 0;
     right: auto;
-    height: 22rem ;
-    width: 25rem;
+    height: 55%;
+    width: 50%;
     background-color: yellow;
     border: 0.5rem solid white;
     border-bottom: 0;
@@ -27,14 +28,15 @@
     position: absolute;
     top:0;
     right: 0;
-    width:25rem;
-    height: 10rem;
+    width:50%;
+    height: 22%;
     background-color: transparent;
-    transform: translateX(25%);
-    margin-top: 3rem;
+    transform: translateX(15%);
+    margin-top: 1rem;
     border-top: 0.07rem solid black;
 
 }
+
 .series-title h4{
     padding: 0.3rem 3rem 0.1rem 3rem;
     background-color: black;
@@ -44,4 +46,8 @@
 .series-subtitle{
     position: absolute;
     right: 0;
+}
+
+.section-m{
+    margin: 6rem 0rem 6rem 0rem;
 }
