@@ -1,0 +1,47 @@
+.img-container{
+    position: relative;
+}
+
+.img-big{
+    position:relative ;
+    height: 38rem;
+    width: 32rem;
+    background-color: blue;
+    object-fit: cover;
+}
+
+.img-little{
+    position: absolute;
+    bottom: 0;
+    right: auto;
+    height: 22rem ;
+    width: 25rem;
+    background-color: yellow;
+    border: 0.5rem solid white;
+    border-bottom: 0;
+    transform: translateX(-25%);
+    object-fit: cover;
+}
+
+.series-title{
+    position: absolute;
+    top:0;
+    right: 0;
+    width:25rem;
+    height: 10rem;
+    background-color: transparent;
+    transform: translateX(25%);
+    margin-top: 3rem;
+    border-top: 0.07rem solid black;
+
+}
+.series-title h4{
+    padding: 0.3rem 3rem 0.1rem 3rem;
+    background-color: black;
+    color: white;
+}
+
+.series-subtitle{
+    position: absolute;
+    right: 0;
+}
