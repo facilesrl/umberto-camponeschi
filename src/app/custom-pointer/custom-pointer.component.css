@@ -7,15 +7,14 @@
     pointer-events: none; /* Evita che il puntatore interferisca con gli eventi */
     transform: translate(-50%, -50%);
     z-index: 9000000000000000000000000;
-    
-    
+    transition: 0.1s;
 }
 
 .pointer-core{
     height: 100%;
     width: 100%;
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.5);
-    mix-blend-mode: difference; /* Per un effetto visivamente interessante */
+    background-color: transparent;
+    /*mix-blend-mode: difference; /* Per un effetto visivamente interessante */
 }
   
