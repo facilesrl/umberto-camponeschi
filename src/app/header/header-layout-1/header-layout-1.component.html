@@ -1,0 +1,9 @@
+<div class="container-fluid px-5 position-properties img-container" >
+    <owl-carousel-o [options]="customOptions" style="height: 45rem!important;">
+        <ng-container *ngFor="let item of items">
+            <ng-template carouselSlide>
+                <img class="hero-image" [src]="item.src" alt="">
+            </ng-template>
+        </ng-container>
+    </owl-carousel-o>
+</div>

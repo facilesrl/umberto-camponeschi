@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { HeaderPageComponent } from '../header-page/header-page.component';
 import { EventEmitter,Output } from '@angular/core';
-
+import { HeaderComponent } from '../header/header.component';
+import { HostListener } from '@angular/core';
 @Component({
     selector: 'app-dynamic-page',
     standalone: true,
-    imports: [CommonModule, HeaderPageComponent],
+    imports: [CommonModule, HeaderPageComponent, HeaderComponent],
     templateUrl: './dynamic-page.component.html',
     styleUrls: ['./dynamic-page.component.css']
 })
@@ -52,20 +53,24 @@ export class DynamicPageComponent implements OnInit, AfterViewInit, OnDestroy {
             console.error('Dynamic container non inizializzato');
             return;
         }
-
-        // Pulisci il contenitore prima di caricare i nuovi componenti
+    
         this.container.clear();
-
-        // Recupera l'array di componenti dal registro usando il nome della pagina
-        const components: Type<any>[] = DynamicComponentRegistry[pageName];
-
+    
+        const components = DynamicComponentRegistry[pageName];
+    
         if (components) {
-            // Per ogni componente nell'array, caricalo nel contenitore
-            components.forEach(component => {
-                this.container.createComponent(component);
+            components.forEach(({ component, template }) => {
+                const componentRef = this.container.createComponent(component);
+    
+                // Passa il template al componente, se applicabile
+                if (template && 'setTemplate' in componentRef.instance) {
+                    (componentRef.instance as any).setTemplate(template);
+                }
             });
         } else {
             console.error(`Nessuna pagina trovata con il nome "${pageName}".`);
         }
     }
+    
+
 }

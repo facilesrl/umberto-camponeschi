@@ -2,21 +2,31 @@ import { Component } from '@angular/core';
 import { SplashScreenComponent } from '../splash-screen/splash-screen.component';
 import { ScrollManagerComponent } from '../scroll-manager/scroll-manager.component';
 import { InEvidenzaBoxComponent } from '../in-evidenza-box/in-evidenza-box.component';
-import { HeaderComponent } from '../header/header.component';
+import { HeaderLayout1Component } from '../header/header-layout-1/header-layout-1.component';
 import { HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HomeSectionComponent } from '../home-section/home-section.component';
+
 @Component({
     selector: 'app-home',
     standalone: true,
     imports: [  SplashScreenComponent, 
                 ScrollManagerComponent, 
                 InEvidenzaBoxComponent,
-                HeaderComponent,
-                CommonModule],
+                HeaderLayout1Component,
+                CommonModule,
+                HomeSectionComponent],
     templateUrl: './home.component.html',
     styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
+    items = [
+        { src: 'assets/images/AntonioECleopatra.jpg', alt: 'Descrizione immagine 1', description: 'Antonio e Cleopatra' },
+        { src: 'assets/images/Come-gli-uccelli_Ph_Giuseppe-Distefano51_da-sx-Palumeri-Forni.jpg', alt: 'Descrizione immagine 2', description: 'Come gli uccelli' },
+        { src: 'assets/images/Lazarus.jpg', alt: 'Descrizione immagine 3', description: 'Lazarus' }
+    ];
+
 
     currentStep: number = 0; // Valore iniziale dello step
 
