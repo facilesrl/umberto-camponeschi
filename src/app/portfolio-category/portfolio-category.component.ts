@@ -5,8 +5,8 @@ import { CarouselModule,OwlOptions } from 'ngx-owl-carousel-o';
   selector: 'app-portfolio-category',
   standalone: true,
   imports: [CarouselModule],
-  templateUrl: './portfolio-category.component.html',
-  styleUrl: './portfolio-category.component.css'
+  templateUrl: './portfolio-category-2.component.html',
+  styleUrl: './portfolio-category-2.component.css'
 })
 export class PortfolioCategoryComponent {
 
