@@ -12,7 +12,8 @@ export const DynamicComponentRegistry: { [key: string]: { component: Type<any>; 
     'Home2': [{ component: HeaderComponent,template:'layout1' }],
     'menu': [{ component: MenuComponent }],
     'about': [{ component: AboutComponent }],
-    'portfolio': [{ component: PortfolioCategoryComponent }],
+    'portfolio': [{ component: PortfolioCategoryComponent,template:'layout1' }],
+    'portfolio2': [{ component: PortfolioCategoryComponent,template:'layout2' }],
     'test1': [  
                 { component: ZoomOutContainerComponent },
                 { component: GeometricBackgroundComponent }
