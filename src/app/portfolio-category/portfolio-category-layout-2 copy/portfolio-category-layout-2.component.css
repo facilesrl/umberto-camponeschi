@@ -1,0 +1,32 @@
+img {
+    width: 100%;
+    height: auto; /* Mantiene le proporzioni originali */
+    transition: transform 500ms;
+}
+
+.position-2{
+    position: relative;
+    transform: translateY(10%);
+}
+
+.position-3{
+    position: relative;
+    transform: translateY(20%);
+}
+
+.img-container{
+    height: 100vh!important;
+    overflow: hidden; /* Nasconde la parte ingrandita dell'immagine che eccede il contenitore */
+    position: relative;
+}
+
+.img-container:hover img {
+    transform: scale(1.2); /* Esegue uno zoom del 20% */
+}
+
+#portfolio{
+    position:inherit;
+    z-index: inherit!important;
+}
+
+  
