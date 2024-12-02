@@ -1,0 +1,48 @@
+<p>navbar2 works!</p>
+<nav id="my-nav" class="mt-5">
+    <div class="container-fluid" style="height: 20rem;">
+        <div class="my-nav-list text-end">
+            <ul class="my-nav-item-collection d-flex">
+                <!-- Usa solo un ngFor -->
+                
+                <li class="my-nav-item" #navItem>
+                    <a routerLink="['../',home]" class="nav-link active text-uppercase " aria-current="page">Home</a>
+                </li>
+                 <!--
+                <li *ngFor="let page of pages_key" class="my-nav-item text-end" #navItem>
+                    <a [routerLink]="['../',page]" class="nav-link active text-uppercase" aria-current="page">{{ page | titlecase }}</a>
+                </li>  -->              
+
+                <ng-container *ngFor="let page_detail of pages_details">
+                    <ng-container *ngIf="page_detail.nav_groupName===''">
+                        <li *ngFor="let pageName of page_detail.pagesName" class="my-nav-item" #navItem>
+                            <a [routerLink]="['../',pageName]" class="nav-link active text-uppercase" aria-current="page">{{ pageName| titlecase }}</a>
+                        </li>
+                    </ng-container>
+                    <ng-container *ngIf="page_detail.nav_groupName!=''">
+                            
+                        <ul class="p-0" style="width: auto!important;">
+                            <li 
+                                class="my-nav-item text-uppercase" 
+                                #navItem
+                                (click)="toggleDropdown()" 
+                                [class.active]="isDropdownOpen">
+                                {{ page_detail.nav_groupName }}
+                            </li>
+                            <li 
+                                *ngFor="let pageName of page_detail.pagesName" 
+                                class="my-nav-item" 
+                                #navItem
+                                [hidden]="!isDropdownOpen">
+                                <a [routerLink]="['../', pageName]" class="nav-link active text-uppercase" aria-current="page">
+                                    {{ pageName | titlecase }}
+                                </a>
+                            </li>
+                        </ul>
+           
+                    </ng-container>
+                </ng-container>
+            </ul>
+        </div>
+    </div>
+</nav>

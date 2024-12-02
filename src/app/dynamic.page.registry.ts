@@ -7,15 +7,17 @@ import { AboutComponent } from './about/about.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { HomeSectionComponent } from './home-section/home-section.component';
+import { Navbar2Component } from './navbar2/navbar2.component';
 
-export const DynamicComponentRegistry: { [key: string]: { component: Type<any>; template?: string }[] } = {
-    'Home2': [{ component: HeaderComponent,template:'layout1' }],
-    'menu': [{ component: MenuComponent }],
-    'about': [{ component: AboutComponent }],
-    'portfolio': [{ component: PortfolioCategoryComponent,template:'layout1' }],
-    'portfolio2': [{ component: PortfolioCategoryComponent,template:'layout2' }],
-    'test1': [  
+export const DynamicComponentRegistry: { [key: string]: {components:{ component: Type<any>; template?: string }[];nav_group?:string } } = {
+    'Home2': {components:[{ component: HeaderComponent,template:'layout1' }]},
+    'menu': {components:[{ component: MenuComponent }]},
+    'about': {components:[{ component: AboutComponent }]},
+    'portfolio': {components:[{ component: PortfolioCategoryComponent,template:'layout1' }],nav_group:'portfolio' },
+    'portfolio2': {components:[{ component: PortfolioCategoryComponent,template:'layout2'}],nav_group:'portfolio' },
+    'test1': {components:[  
                 { component: ZoomOutContainerComponent },
                 { component: GeometricBackgroundComponent }
-            ]
+            ],nav_group:'test'},
+    'test2':{components:[{component:Navbar2Component}],nav_group:'test'}
 };

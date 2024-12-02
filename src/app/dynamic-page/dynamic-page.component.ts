@@ -4,7 +4,7 @@ import { DynamicComponentRegistry } from '../dynamic.page.registry'; // Assicura
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { HeaderPageComponent } from '../header-page/header-page.component';
-import { EventEmitter,Output } from '@angular/core';
+import { EventEmitter, Output } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { HostListener } from '@angular/core';
 @Component({
@@ -53,24 +53,29 @@ export class DynamicPageComponent implements OnInit, AfterViewInit, OnDestroy {
             console.error('Dynamic container non inizializzato');
             return;
         }
-    
+
         this.container.clear();
-    
-        const components = DynamicComponentRegistry[pageName];
-    
-        if (components) {
-            components.forEach(({ component, template }) => {
+
+        const page = DynamicComponentRegistry[pageName];
+
+        if (page) {
+            page.components.forEach(({ component, template }) => {
                 const componentRef = this.container.createComponent(component);
-    
+
                 // Passa il template al componente, se applicabile
                 if (template && 'setTemplate' in componentRef.instance) {
                     (componentRef.instance as any).setTemplate(template);
                 }
             });
+
+            // Gestione del nav_group, se presente
+            if (page.nav_group) {
+                console.log(`Nav Group: ${page.nav_group}`);
+            }
         } else {
             console.error(`Nessuna pagina trovata con il nome "${pageName}".`);
         }
     }
-    
+
 
 }

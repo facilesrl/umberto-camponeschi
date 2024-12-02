@@ -1,0 +1,26 @@
+.my-nav-list ul li{
+    list-style: none;
+}
+
+.my-nav-item{
+    margin: 0.3rem 0.3rem 0.3rem 0.3rem;
+    padding: 0.4rem 0.8rem 0.4rem 1rem;
+    font-size: 1rem;
+    font-weight: 300;
+    background-color: black;
+    color: white;
+}
+
+
+.my-nav-item:hover{
+    background-color: gray;
+    color: white;
+}
+
+.my-drop-down-father{
+    position: relative;
+}
+
+.my-drop-down{
+    position: absolute;
+}
