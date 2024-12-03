@@ -1,0 +1,35 @@
+.preview-img-container{
+    width:70%;
+    z-index: 1;
+}
+
+.preview-img-container img{
+    width: 100%;
+    object-fit: cover;
+    
+}
+
+.preview-description-container{
+    width: 70%;
+}
+
+.preview-title{
+    background-color: black;
+    color: white;
+    padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.col-6{
+    position: relative;
+}
+
+.border-container{
+    position: absolute;
+    width: 150%;
+    border: 0.1rem solid black;
+    left:-70%;
+    top: -50px;
+    height: 120%!important;
+    z-index: 0!important;
+}
