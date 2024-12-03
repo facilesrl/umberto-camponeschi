@@ -41,8 +41,8 @@
 }
 
 .row-margin{
-    margin-top: 10rem!important;
-    margin-bottom: 10rem!important;
+    margin-top: 7rem!important;
+    margin-bottom: 7rem!important;
 }
 
 
@@ -72,8 +72,8 @@
     width: 150%;
     border: 0.07rem solid black;
     left:-70%;
-    top: -7%;
-    height: 110%!important;
+    top: -12%;
+    height: 120%!important;
     z-index: 0!important;
 }
 
