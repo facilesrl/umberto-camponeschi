@@ -17,10 +17,20 @@
     color: white;
 }
 
-.my-drop-down-father{
+.dropdown{
     position: relative;
 }
 
-.my-drop-down{
+.dropdown ul{
     position: absolute;
+    left: 0;
+    margin: 0.3rem 0.3rem 0.3rem 0rem;
+}
+
+.dropdown ul li{   
+    margin-left: 0;
+}
+
+.my-nav-mt{
+    margin-top: 14rem!important;
 }
