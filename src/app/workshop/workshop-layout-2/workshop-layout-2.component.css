@@ -13,6 +13,12 @@
     width: 70%;
 }
 
+.row-margin{
+    margin-top: 10rem!important;
+    margin-bottom: 10rem!important;
+}
+
+
 .preview-title{
     background-color: black;
     color: white;
@@ -21,10 +27,15 @@
 }
 
 .preview-title-container{
+    width: 133%;
+    transform: translateX(-25%);
     margin-bottom: 1rem;
+    /*border-top:0.1rem solid black;
+    border-bottom:0.1rem solid black;*/
 }
 
-.col-6{
+
+.has-border-container{
     position: relative;
 }
 
