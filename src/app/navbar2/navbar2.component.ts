@@ -120,10 +120,11 @@ export class Navbar2Component {
     }
     
 
-    isDropdownOpen = false;
+    isDropdownOpen: { [key: number]: boolean } = {};
 
-    toggleDropdown(): void {
-        this.isDropdownOpen = !this.isDropdownOpen;
+    toggleDropdown(index: number): void {
+      // Toggle lo stato del dropdown specifico
+      this.isDropdownOpen[index] = !this.isDropdownOpen[index];
     }
 
 }

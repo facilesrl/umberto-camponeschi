@@ -76,6 +76,20 @@
     transform: scaleY(1);
 }
 
+.has-submenu li{
+    list-style: none;
+}
+
+.submenu:hover{
+    background-color: white!important;
+    transform: scaleY(1);
+}
+
+.submenu-item:hover .submenu{
+    background-color: white!important;
+    transform: scaleY(1);
+}
+
 
 .submenu{
     position: absolute;
@@ -86,6 +100,8 @@
     transform: scaleY(0);
     transform-origin: top;
     transition: all 0.5s;
+    padding: 1.5rem;
+    z-index: 1;
 }
 
 .submenu-reposition{
