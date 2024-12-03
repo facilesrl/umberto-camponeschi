@@ -2,15 +2,23 @@
 <div class="container-fluid">
     <div *ngFor="let section of section_array" class="row row-margin" style="background-color: transparent;">
         <div class="col-12 col-md-6 d-flex justify-content-center ">
-            <div class="preview-img-container">
+            <div class="preview-img-container d-flex">
                 <img src="/assets/images/prova-header-foto.jpg" alt="">
+                <div class="overlay justify-content-center d-flex">
+                    <div class="overlay-title-container w-100 h-100 d-flex justify-content-start align-content-center px-5">
+                        <p class="text-uppercase">
+                            // sezione: {{section}}
+                        </p>
+                    </div>
+
+                </div>
             </div>
         </div>
         <div class="col-12 col-md-6 has-border-container">
             <div class="preview-description-container h-100 text-end ">
                 <div class="preview-title-container">
                     <h3 class="preview-title text-uppercase d-inline-block text-end">
-                        Section:{{section}}
+                        // sezione: {{section}}
                     </h3>
                 </div>
                 <div class="previe-description-container d-flex h-auto">
