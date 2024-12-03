@@ -24,6 +24,8 @@
     object-fit: cover;
 }
 
+.img-big-container{}
+
 .series-title{
     position: absolute;
     top:0;
@@ -50,4 +52,30 @@
 
 .section-m{
     margin: 6rem 0rem 6rem 0rem;
+}
+
+
+
+.img-big:hover .overlay{
+    visibility: visible!important;
+    opacity:1!important;
+}
+
+
+.overlay{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 15rem!important;
+    height: 25rem!important;
+    background-color: black;
+    color:white;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s;
+    z-index: 3!important;
+}
+
+.overlay-series-title{
+    flex-wrap: wrap;
 }
