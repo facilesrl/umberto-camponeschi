@@ -11,7 +11,7 @@ import { Navbar2Component } from './navbar2/navbar2.component';
 import { WorkshopComponent } from './workshop/workshop.component';
 import { TableDescriptionComponent } from './table-description/table-description.component';
 
-
+import { PortfolioDetailsComponent } from './portfolio-details/portfolio-details.component';
 
 export const DynamicComponentRegistry: { [key: string]: {components:{ component: Type<any>; template?: string }[];nav_group?:string } } = {
     'Home2': {components:[{ component: HeaderComponent,template:'layout1' }]},
@@ -19,6 +19,7 @@ export const DynamicComponentRegistry: { [key: string]: {components:{ component:
     'about': {components:[{ component: AboutComponent }]},
     'portfolio1': {components:[{ component: PortfolioCategoryComponent,template:'layout1' }],nav_group:'portfolio' },
     'portfolio2': {components:[{ component: PortfolioCategoryComponent,template:'layout2'}],nav_group:'portfolio' },
+    'portfolioDetails':{components:[{component:PortfolioDetailsComponent}]},
     'workshop1':{ components:[{component: WorkshopComponent,template:'layout1'}],nav_group:'workshop'},
     'workshop2':{ components:[{component: TableDescriptionComponent},{component:WorkshopComponent,template:'layout2'}],nav_group:'workshop'},
     'test1': {components:[  
