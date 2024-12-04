@@ -1,5 +1,6 @@
 .img-first-container-detail {
     width: 100%;
+    position: relative;
 }
 
 .img-first-container-detail img {
@@ -82,6 +83,10 @@
     height: auto;
 }
 
+.img-first-container-detail:hover .overlay{
+    visibility: visible;
+    opacity: 1;
+}
 
 .img-container-detail:hover .overlay {
     visibility: visible;
