@@ -1,0 +1,57 @@
+<p>portfolio-details works!</p>
+<div class="container-fluid portfolio-details-container-p">
+    <div class="category-data mx-5">
+        <div class="row">
+            <div class="col-6">
+                <h3 class="category-title text-uppercase d-inline-block my-3">
+                    //section : #section
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+
+            </div>
+            <div class="col-6">
+                <p class="category-description text-justify mr-2 pb-2">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur imperdiet faucibus tellus, ac pulvinar
+                    augue consectetur et. Mauris ullamcorper sodales tristique. Nullam commodo a dui non pulvinar. Maecenas
+                    laoreet justo ut pharetra suscipit. Nullam elementum sapien ac ligula hendrerit, vel maximus metus
+                    hendrerit. Mauris pulvinar imperdiet mi at aliquet. Cras congue fermentum magna, sit amet sodales nibh
+                    posuere quis. Curabitur a molestie dolor, at elementum ipsum. Integer mattis turpis arcu, ut placerat ligula
+                    faucibus at. Nulla semper tellus lectus, sit amet placerat enim rutrum vel. Pellentesque habitant morbi
+                    tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus hendrerit nisl et posuere
+                    elementum.
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <ng-container *ngFor=" let detail of section_details; let i = index; ">
+            <div *ngIf="i==0" class="row d-flex justify-content-center">
+                <div class="col-11 py-5 d-flex justify-content-center">
+                    <div class="img-first-container-detail align-self-center">
+                        <img src="assets/images/prova-header-foto.jpg" alt="">
+                    </div>
+
+                </div>
+            </div>
+
+            <ng-container *ngIf="i!=0">
+                <div class="col-6 py-5 d-flex justify-content-center">
+                    <div class="img-container-detail align-self-center" (click)="zoomImage()">
+                        <img src="assets/images/prova-header-foto.jpg" alt="">
+                    </div>
+                </div>
+                <div *ngIf="isZoomed" class="modal" (click)="closeZoom()">
+                    <div class="modal-content">
+                      <img src="assets/images/prova-header-foto.jpg" alt="Zoomed Image">
+                    </div>
+                  </div>
+            </ng-container>
+
+        </ng-container>
+    </div>
+</div>

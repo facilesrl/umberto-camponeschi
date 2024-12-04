@@ -1,0 +1,104 @@
+<p>table-description works!</p>
+<div class="container-fluid tab-description-container-p">
+    <div *ngFor="let row of rows; let i= index" class="row">
+        <div *ngFor="let column of row; let j = index" [ngClass]="['col-has-border '+'col-' + column]"
+            class="col-has-border p-1">
+            <div [ngClass]="'height-'+i">
+                <div *ngIf="i==0 && j==0" class="table-description-content p-5">
+                    <p class="table-description-fs-bg text-justify">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac erat at nibh dignissim porta
+                        nec
+                        ut quam. Duis venenatis ullamcorper orci. Suspendisse vel aliquet diam, a mattis purus. Donec
+                        nec
+                        enim diam. Nam dapibus dolor nec nisl malesuada dictum. Integer maximus posuere tortor vel
+                        tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                        curae;
+                    </p>
+                    <div class="py-4 px-2">
+                        <h3 class="table-description-title text-uppercase d-inline">
+                            //titolo sezione :{{j}}
+                        </h3>
+                        <p class="table-description-fs text-justify mt-3">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac erat at nibh dignissim
+                            porta nec
+                            ut quam. Duis venenatis ullamcorper orci. Suspendisse vel aliquet diam, a mattis purus.
+                            Donec nec
+                            enim diam. Nam dapibus dolor nec nisl malesuada dictum. Integer maximus posuere tortor vel
+                            tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                            curae;
+                        </p>
+                        <p class="table-description-fs-lt text-justify">
+                            freestar
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac erat at nibh dignissim
+                            porta nec
+                            ut quam. Duis venenatis ullamcorper orci. Suspendisse vel aliquet diam, a mattis purus.
+                            Donec nec
+                            enim diam. Nam dapibus dolor nec nisl malesuada dictum. Integer maximus posuere tortor vel
+                            tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                            curae;
+                        </p>
+                    </div>
+                </div>
+
+                <div *ngIf="i==0 && j==1" class="table-description-content p-5">
+                    <h3 class="table-description-title text-uppercase d-inline">
+                        //titolo sezione :{{j}}
+                    </h3>
+                    <p class="table-description-fs text-justify mt-3">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac erat at nibh dignissim porta
+                        nec
+                        ut quam. Duis venenatis ullamcorper orci. Suspendisse vel aliquet diam, a mattis purus. Donec
+                        nec
+                        enim diam. Nam dapibus dolor nec nisl malesuada dictum. Integer maximus posuere tortor vel
+                        tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                        curae;
+                    </p>
+
+                    <h3 class="table-description-title text-uppercase d-inline">
+                        //titolo sezione :{{j}}
+                    </h3>
+                    <p class="table-description-fs text-justify mt-3">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac erat at nibh dignissim porta
+                        nec
+                        ut quam. Duis venenatis ullamcorper orci. Suspendisse vel aliquet diam, a mattis purus. Donec
+                        nec
+                        enim diam. Nam dapibus dolor nec nisl malesuada dictum. Integer maximus posuere tortor vel
+                        tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                        curae;
+                    </p>
+                </div>
+
+                <div *ngIf="i!=0 && j==0" class="table-description-content p-5">
+                    <h3 class="table-description-title text-uppercase d-inline">
+                        //titolo sezione :{{j}}
+                    </h3>
+                    <p class="table-description-fs text-justify mt-3">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac erat at nibh dignissim porta
+                        nec
+                        ut quam. Duis venenatis ullamcorper orci. Suspendisse vel aliquet diam, a mattis purus. Donec
+                        nec
+                        enim diam. Nam dapibus dolor nec nisl malesuada dictum. Integer maximus posuere tortor vel
+                        tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                        curae;
+                    </p>
+                </div>
+
+                <div *ngIf="i!=0 && j!=0" class="table-description-content p-5">
+                    <p class="table-description-fs text-justify mt-3">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac erat at nibh dignissim porta
+                        nec
+                        ut quam. Duis venenatis ullamcorper orci. Suspendisse vel aliquet diam, a mattis purus. Donec
+                        nec
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <div *ngIf="i<rows.length -1" class="px-1" class="divider-containers">
+            <hr class="horizontal-divider">
+            <hr class="vertical-divider">
+        </div>
+
+    </div>
+
+</div>

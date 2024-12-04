@@ -1,0 +1,59 @@
+
+.tab-description-container-p{
+    padding: 5rem 10rem 5rem 10rem;
+    overflow: hidden!important;
+}
+
+.height-0{
+      
+}
+
+.divider-container{
+    position: relative;
+}
+
+.height-1{
+   
+}
+
+.horizontal-divider{
+    width: 100%;
+    border:none;
+    border-top: 0.02rem dotted black!important;
+   
+}
+
+.vertical-divider{
+    width: 100%;
+    border:none;
+    border-top: 0.02rem dotted black;
+    transform: rotate(90deg);
+}
+
+
+.table-description-title{
+    font-size: 1.1rem;
+    font-weight: 300;
+    background-color: black;
+    padding: 0.2rem 0.4rem 0.2rem 0.4rem ;
+    color: white;
+}
+
+.table-description-title:hover {
+    background-color: gray;
+    color: white;
+}
+
+.table-description-fs-bg{
+    font-size: 1.1rem;
+    line-height: 1.3rem;
+}
+
+.table-description-fs{
+    font-size: 0.9rem;
+}
+
+
+.table-description-fs-lt{
+    font-size: 0.85rem;
+}

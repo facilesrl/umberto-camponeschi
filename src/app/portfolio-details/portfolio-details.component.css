@@ -1,0 +1,80 @@
+.img-first-container-detail{
+    width:100%;
+}
+
+.img-first-container-detail img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-container-detail{
+    width: 90%;
+}
+
+.img-container-detail img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.portfolio-details-container-p{
+    padding: 2rem 10rem 2rem 10rem;
+}
+
+.category-data{
+    border-top: 0.3rem double black;
+    border-bottom:  0.1rem solid black;
+}
+
+.category-title{
+    background-color: black;
+    color: white;
+    padding: 0.2rem 0.3rem 0.2rem 0.3rem;
+}
+
+.category-description{
+    font-size: 0.9rem;
+}
+
+
+/*////////////////////////*
+/* Stile per il container dell'immagine */
+.image-container-detail {
+    width: 300px; /* Imposta la larghezza desiderata */
+    height: 200px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  /* Stile per l'immagine */
+  .image-container-detail img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Transizione per effetto zoom */
+  }
+  
+  /* Modal per l'immagine ingrandita */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.312);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    max-width: 50%;
+    max-height: 50%;
+    border: none;
+  }
+  
+  /* Immagine zoomata nella modale */
+  .modal img {
+    width: 100%;
+    height: auto;
+  }
