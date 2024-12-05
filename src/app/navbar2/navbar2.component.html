@@ -71,3 +71,49 @@
     <p>{{ page.description }}</p>
   </div>
   
+
+  <nav id="my-nav" class="my-nav-mt">
+    <div class="container-fluid" style="height: 20rem;">
+        <div class="my-nav-list text-end">
+            <ul class="my-nav-item-collection d-flex">
+                <!-- Usa solo un ngFor -->
+
+                <li class="my-nav-item" #navItem>
+                    <a routerLink="['../',home]" class="nav-link active text-uppercase " aria-current="page">Home</a>
+                </li>
+                <!--
+                <li *ngFor="let page of pages_key" class="my-nav-item text-end" #navItem>
+                    <a [routerLink]="['../',page]" class="nav-link active text-uppercase" aria-current="page">{{ page | titlecase }}</a>
+                </li>  -->
+
+                <ng-container *ngFor="let nav_detail of nav_details_DB; index as i">
+                    <ng-container *ngIf="nav_detail.nav_groupName===''">
+                        <li *ngFor="let pageName of nav_detail.pages" class="my-nav-item" #navItem>
+                            <a [routerLink]="['../', pageName]" class="nav-link active text-uppercase"
+                                aria-current="page">{{ pageName| titlecase }}
+                            </a>
+                        </li>
+                    </ng-container>
+                    <ng-container *ngIf="nav_detail.nav_groupName!=''">
+                        <div class="my-nav-item text-uppercase dropdown" #navItem 
+                            data-index="i"
+                            (click)="toggleDropdown(i)"
+                            [ngClass]="{'active': isDropdownOpen[i]}">
+                            {{i}}
+                            {{ nav_detail.nav_groupName }}
+                            <ul class="p-0">
+                                <li *ngFor="let pageName of nav_detail.pages" class="my-nav-item" #navItem
+                                    [hidden]="!isDropdownOpen[i]">
+                                    <a [routerLink]="['../', pageName]" class="nav-link active text-uppercase"
+                                        aria-current="page">
+                                        {{ pageName | titlecase }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </ul>
+        </div>
+    </div>
+</nav>

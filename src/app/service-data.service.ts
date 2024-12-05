@@ -22,6 +22,7 @@ interface Article {
 
 interface Page {
     id: number;
+    name: string;
     title: string;
     subtitle: string;
     description: string;
@@ -30,6 +31,7 @@ interface Page {
     content?: string;  // Può contenere HTML o testo lungo
     images?: string[]; // Array di immagini
     subPages?: Page[]; // Nel caso volessi aggiungere delle sotto-pagine
+    nav_groupName?: string; // opzionale
 }
 
 
@@ -72,7 +74,8 @@ export class ServiceDataService {
     private pages: Page[] = [
         {
             id: 1,
-            title: 'Home',
+            name: 'home',
+            title: 'home',
             subtitle: 'Benvenuti sul nostro sito',
             description: 'La homepage del nostro sito vetrina.',
             shortDescription: 'Scopri i nostri servizi e prodotti.',
@@ -81,7 +84,8 @@ export class ServiceDataService {
         },
         {
             id: 2,
-            title: 'Menu',
+            name: 'menu',
+            title: 'menu',
             subtitle: 'Il nostro menu',
             description: 'Scopri i vari piatti che offriamo.',
             shortDescription: 'Un viaggio nei nostri piatti unici.',
@@ -90,7 +94,8 @@ export class ServiceDataService {
         },
         {
             id: 3,
-            title: 'About',
+            name: 'about',
+            title: 'about',
             subtitle: 'Chi siamo',
             description: 'Una breve storia su di noi.',
             shortDescription: 'Conosci il nostro team e la nostra missione.',
@@ -99,21 +104,47 @@ export class ServiceDataService {
         },
         {
             id: 4,
-            title: 'Portfolio',
+            name: 'portfolio1',
+            title: 'portfolio1',
             subtitle: 'I nostri progetti',
             description: 'Esplora i progetti che abbiamo realizzato.',
             shortDescription: 'Dai uno sguardo alle nostre creazioni.',
             slug: 'portfolio',
-            images: ['prova-header-foto.jpg']
+            images: ['prova-header-foto.jpg'],
+            nav_groupName:'portfolio'
         },
         {
             id: 5,
-            title: 'Workshop',
+            name: 'portfolio2',
+            title: 'portfolio2',
+            subtitle: 'I nostri progetti',
+            description: 'Esplora i progetti che abbiamo realizzato.',
+            shortDescription: 'Dai uno sguardo alle nostre creazioni.',
+            slug: 'portfolio',
+            images: ['prova-header-foto.jpg'],
+            nav_groupName:'portfolio'
+        },
+        {
+            id: 6,
+            name: 'workshop1',
+            title: 'workshop1',
             subtitle: 'I nostri workshop',
             description: 'Partecipa ai nostri workshop pratici.',
             shortDescription: 'Impara nuove abilità con noi.',
             slug: 'workshop',
-            images: ['prova-header-foto.jpg']
+            images: ['prova-header-foto.jpg'],
+            nav_groupName:'workshop'
+        },
+        {
+            id: 7,
+            name: 'workshop2',
+            title: 'workshop2',
+            subtitle: 'I nostri workshop',
+            description: 'Partecipa ai nostri workshop pratici.',
+            shortDescription: 'Impara nuove abilità con noi.',
+            slug: 'workshop',
+            images: ['prova-header-foto.jpg'],
+            nav_groupName:'workshop'
         }
     ];
 
