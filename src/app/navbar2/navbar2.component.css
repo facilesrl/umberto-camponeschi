@@ -34,3 +34,22 @@
 .my-nav-mt{
     margin-top: 14rem!important;
 }
+
+
+.portfolio-details-page-title{
+    font-size: 8rem;
+    font-weight: 600;
+    line-height: 8.5rem;
+
+}
+
+.portfolio-details-page-title-2{
+    font-size: 6rem;
+    font-weight: 500;
+
+}
+
+.title-bg{
+    background-color: black;
+    color: white;
+}

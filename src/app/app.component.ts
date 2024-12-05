@@ -6,6 +6,7 @@ import { ScrollManagerComponent } from './scroll-manager/scroll-manager.componen
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CustomPointerComponent } from './custom-pointer/custom-pointer.component';
 import { SplashScreenComponent } from './splash-screen/splash-screen.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
     selector: 'app-root',
@@ -15,7 +16,8 @@ import { SplashScreenComponent } from './splash-screen/splash-screen.component';
                 ScrollManagerComponent, 
                 FontAwesomeModule, 
                 CustomPointerComponent,
-                SplashScreenComponent
+                SplashScreenComponent,
+                HttpClientModule
             ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css'
