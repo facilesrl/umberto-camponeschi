@@ -5,6 +5,10 @@ import { CommonModule } from '@angular/common';
 import { ElementRef } from '@angular/core';
 import { AfterViewInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+
+import { ServiceDataService } from '../service-data.service';
 
 interface PageDetail {
     nav_groupName: string;
@@ -14,13 +18,16 @@ interface PageDetail {
 @Component({
     selector: 'app-navbar2',
     standalone: true,
-    imports: [CommonModule, RouterLink, RouterModule],
+    imports: [CommonModule, RouterLink, RouterModule,HttpClientModule],
     templateUrl: './navbar2.component.html',
     styleUrl: './navbar2.component.css'
 })
 
 export class Navbar2Component {
 
+    pages: any[] = [];
+
+    constructor(private serviceData: ServiceDataService) { }
 
 
     @ViewChildren('navItem') navItems!: QueryList<ElementRef>;
@@ -84,6 +91,11 @@ export class Navbar2Component {
             console.log('dentro secondo ciclo',this.pages_details)
         }
         console.log(this.array_page__details, 'stampa array page_details');
+
+        //test servizio 
+        this.serviceData.getPages().subscribe(data => {
+            this.pages = data;
+          });
     }
 
 
