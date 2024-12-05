@@ -11,5 +11,6 @@ import { CommonModule } from '@angular/common';
 export class WorkshopLayout2Component {
 
   @Input() section_array:string[]=[];
+  @Input() project_array:any[]=[];
 
 }

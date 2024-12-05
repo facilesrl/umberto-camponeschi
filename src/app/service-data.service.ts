@@ -131,7 +131,7 @@ export class ServiceDataService {
         { id: 0, name: 'Foto' },
         { id: 1, name: 'Video' },
         { id: 2, name: 'Tutorial' },
-        { id: 3, name: 'Progetti' }
+        { id: 3, name: 'project' }
     ];
 
     // Dati finti per le Categorie
@@ -202,6 +202,10 @@ export class ServiceDataService {
 
     getArticlesByCategory_id(category_id: number): Article[] {
         return this.articles.filter(article => article.category_id === category_id);
+    }
+
+    getArticlesByProductTypeName(productType: string):Article[]{
+        return this.articles.filter(article=> article.productType.name===productType);
     }
 
 }

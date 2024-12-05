@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { OnInit,OnChanges,SimpleChanges,ViewChild,ViewContainerRef,Type } from '@angular/core';
 import { WorkshopLayout1Component } from './workshop-layout-1/workshop-layout-1.component';
 import { WorkshopLayout2Component } from './workshop-layout-2/workshop-layout-2.component';
-
+import { ServiceDataService } from '../service-data.service';
 @Component({
     selector: 'app-workshop',
     standalone: true,
@@ -31,16 +31,23 @@ export class WorkshopComponent {
         }
     }
 
-    constructor() {
+    constructor(private serviceData:ServiceDataService) {
     }
 
     ngOnInit() {
-        this.loadLayout(this.selectedLayout);
+        this.loadProduct(); // Carica i dati
+        setTimeout(() => { // Aspetta che i dati siano caricati
+            this.loadLayout(this.selectedLayout);
+        }, 0);
+
     }
 
-    ngAfterViewInit() {
-        this.loadLayout(this.selectedLayout);
+    project_array:any[]=[];
+
+    loadProduct(){
+        this.project_array=this.serviceData.getArticlesByProductTypeName('project');
     }
+
     ngOnChanges(changes: SimpleChanges): void {
         // Ricarica il layout ogni volta che ci sono cambiamenti
         this.loadLayout(this.selectedLayout);
@@ -48,6 +55,7 @@ export class WorkshopComponent {
 
     number_section:number = 5;
     section_array:number[] = Array.from({ length: this.number_section }, (v, i) => i);
+
 
     loadLayout(layoutName: string): void {
         const layoutComponent = this.layoutMap[layoutName];
@@ -58,6 +66,7 @@ export class WorkshopComponent {
         const componentRef = this.container.createComponent(layoutComponent); // Crea il layout
         // Passa variabili come input al componente dinamico
         componentRef.instance.section_array = this.section_array;
+        componentRef.instance.project_array = this.project_array;
         console.log(this.section_array)
     }
 
