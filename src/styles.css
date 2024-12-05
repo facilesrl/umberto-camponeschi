@@ -97,4 +97,7 @@ main{
     font-style: normal;
 }
 
-  
+.portfolio-details-page-title{
+    font-size: 8rem;
+    font-weight: 500;
+}
