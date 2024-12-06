@@ -37,6 +37,14 @@
 
 
 .portfolio-container{
-    padding: 10rem 10rem 10rem 10rem;
+    padding: 0rem 10.5rem 0rem 10.5rem;
 }
   
+
+.row > .col-6:nth-child(2n){
+    justify-content: end!important;
+}
+
+.row{
+    max-width: 100%;
+}

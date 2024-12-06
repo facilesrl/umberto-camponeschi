@@ -1,21 +1,20 @@
-<div class="container portfolio-container">
-    <section>
-        <div class="row">
-            <div *ngFor="let category of categorie_foto" class="col-6 py-5 px-0 d-flex justify-content-center">
-                <div (click)="goToCategoryDetails(category.name)" class="portfolio-image-container">
-                    <div class="overlay justify-content-center">
-                        <div
-                            class="portfolio-title-container w-100 h-100 d-flex justify-content-start align-content-center px-5">
-                            <p class="text-uppercase">
-                                // categoria: {{category.name}}
-                            </p>
-                        </div>
-
+<div class="container-fluid portfolio-container d-flex justify-content-center">
+    <div class="row d-flex w-100 mx-0">
+        <div *ngFor="let category of categorie_foto" class="col-6 py-5 px-0 d-flex">
+            <div (click)="goToCategoryDetails(category.name)" class="portfolio-image-container">
+                <div class="overlay justify-content-center">
+                    <div
+                        class="portfolio-title-container w-100 h-100 d-flex justify-content-start align-content-center px-5">
+                        <p class="text-uppercase">
+                            // categoria: {{category.name}}
+                        </p>
                     </div>
-                    <img class="portfolio-image" src="assets/images/prova-header-foto.jpg" alt="">
-                </div>
 
+                </div>
+                <img class="portfolio-image" src="assets/images/prova-header-foto.jpg" alt="">
             </div>
+
         </div>
-    </section>
+    </div>
+
 </div>
