@@ -14,7 +14,7 @@ import { TableDescriptionComponent } from './table-description/table-description
 import { PortfolioDetailsComponent } from './portfolio-details/portfolio-details.component';
 
 export const DynamicComponentRegistry: { [key: string]: {components:{ component: Type<any>; template?: string }[];nav_group?:string } } = {
-    'Home2': {components:[{ component: HeaderComponent,template:'layout1' }]},
+    //'Home2': {components:[{ component: HeaderComponent,template:'layout1' }]},
     'menu': {components:[{ component: MenuComponent }]},
     'about': {components:[{ component: AboutComponent }]},
     'portfolio1': {components:[{ component: PortfolioCategoryComponent,template:'layout1' }],nav_group:'portfolio' },

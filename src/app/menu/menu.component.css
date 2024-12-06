@@ -7,12 +7,21 @@
     color: white;
 }
 
-.menu-items ul {
-    list-style-type: none;
-    padding-left: 0; /* opzionale, per rimuovere anche il rientro a sinistra */
+.menu-items ol {
+    /*list-style-type: decimal;*/
+    margin-left: 5rem; /* opzionale, per rimuovere anche il rientro a sinistra */
 }
 
 .menu-container-position{
     position: absolute;
     top: 0;
+}
+
+.text-border {
+    color: transparent;
+    font-size: 4rem;
+    font-weight: bolder;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    text-transform: uppercase;
 }
