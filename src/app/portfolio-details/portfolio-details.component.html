@@ -30,10 +30,10 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row d-flex justify-content-center">
         <ng-container *ngFor=" let article of articles_db; let i = index; ">
-            <div *ngIf="i==0" class="row d-flex justify-content-center">
-                <div class="col-11 py-5 d-flex justify-content-center">
+            <div *ngIf="i==0" class="row p-0 d-flex justify-content-center">
+                <div class="col-12 py-5 d-flex justify-content-center">
                     <div class="img-first-container-detail align-self-center">
                         <img src="assets/images/prova-header-foto.jpg" alt="">
 
@@ -54,7 +54,22 @@
                 </div>
             </div>
             <ng-container *ngIf="i!=0">
-                <div class="col-6 py-5 d-flex justify-content-center">
+                <div *ngIf="i%2!=0" class="col-6 pr-0 py-5 d-flex justify-content-start">
+                    <div class="img-container-detail align-self-center" (click)="zoomImage()">
+                        <img src="assets/images/prova-header-foto.jpg" alt="">
+                        <div class="overlay justify-content-center">
+                            <div
+                                class="img-title-container w-100 h-100 d-flex justify-content-start align-content-center px-5">
+                                <p class="text-uppercase">
+                                    // Click here
+                                    <br>
+                                    //foto {{article.article_title}} della categoria {{selected_category}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="i%2==0" class="col-6 pl-0 py-5 d-flex justify-content-end">
                     <div class="img-container-detail align-self-center" (click)="zoomImage()">
                         <img src="assets/images/prova-header-foto.jpg" alt="">
                         <div class="overlay justify-content-center">

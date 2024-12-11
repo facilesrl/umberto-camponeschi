@@ -12,14 +12,13 @@ import { ProjectDataService } from '../../project-data.service';
     styleUrl: './workshop-layout-1.component.css'
 })
 export class WorkshopLayout1Component {
-    
+
     @Input() project_array: Project[] = [];
 
     constructor(private router: Router, private projectData:ProjectDataService){}
     ngOnInit() {
         console.log('articoli progetti in workshoplayout1', this.project_array)
     }
-
 
     //Metodi per la selezione della pagina del progetto e contenuto.
     //selectedProjectId salva id del projetto selezionato in variabile del servizio progetti.
