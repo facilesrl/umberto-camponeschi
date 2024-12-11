@@ -1,21 +1,18 @@
-import { Component, ViewContainerRef, ViewChild, Type } from '@angular/core';
+import { Component,HostListener, SimpleChanges ,ViewContainerRef, ViewChild, Type } from '@angular/core';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CommonModule } from '@angular/common';
-import { SimpleChanges } from '@angular/core';
 
 import { ScrollManagerComponent } from '../scroll-manager/scroll-manager.component';
-
-
 import { HeaderLayout1Component } from './header-layout-1/header-layout-1.component';
-import { HostListener } from '@angular/core';
+
 
 @Component({
     selector: 'app-header',
     standalone: true,
-    imports: [CarouselModule,
-        CommonModule,
-        ScrollManagerComponent,
-        HeaderLayout1Component
+    imports: [  CarouselModule,
+                CommonModule,
+                ScrollManagerComponent,
+                HeaderLayout1Component
     ],
     templateUrl: './header.component.html',
     styleUrl: './header.component.css'
