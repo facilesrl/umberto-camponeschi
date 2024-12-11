@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { ServiceDataService } from '../service-data.service';
-import { ActivatedRoute } from '@angular/router';
 import { ProjectDataService } from '../project-data.service';
+import { Project } from '../shared/models/project.model';
 
 @Component({
     selector: 'app-project-details',
@@ -12,18 +11,21 @@ import { ProjectDataService } from '../project-data.service';
 })
 export class ProjectDetailsComponent {
 
-    constructor(private serviceData: ServiceDataService, private route: ActivatedRoute) {}
+    constructor(private projectService: ProjectDataService) { }
 
-    project: any[]=[];
-    selected_project: string = ''
+    project: any[] = [];
+    selected_project: string = '';
+    selected_project_db: any;
     ngOnInit() {
-
-        // Recupera la categoria dall'URL
-        this.route.paramMap.subscribe(params => {
-            this.selected_project= params.get('project') || '';
-            this.project = this.serviceData.getProjectByName(this.selected_project);
-        });
-
+        this.loadSelectedProject();
         console.log(this.project)
+    }
+
+    loadSelectedProject() {
+        this.projectService.getProjectById().subscribe((data: Project) => {
+            this.selected_project_db = data
+            console.log(this.selected_project_db, 'dentro load del servizio progetto selezionato')
+        }
+        )
     }
 }

@@ -2,7 +2,7 @@
 <div class="container-fluid workshop-container-p">
     <div *ngFor="let project of project_array" class="row row-margin" style="background-color: transparent;">
         <div class="col-12 col-md-6 d-flex justify-content-center ">
-            <div (click)="goToProjectDetails(project.project_title)" class="preview-img-container d-flex">
+            <div (click)="goToProjectDetailsAndSelect(project)" class="preview-img-container d-flex">
                 <img src="assets/images/prova-header-foto.jpg" alt="">
                 <div class="overlay justify-content-center d-flex">
                     <div class="overlay-title-container w-100 h-100 d-flex justify-content-start align-content-center px-5">

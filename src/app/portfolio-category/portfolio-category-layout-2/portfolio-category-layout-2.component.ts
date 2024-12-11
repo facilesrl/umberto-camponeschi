@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Input } from '@angular/core';
-import { OnInit,AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -23,7 +22,6 @@ export class PortfolioCategoryLayout2Component {
     ngAfterViewInit(){
         console.log(this.categories, 'dentro layoput2 after init')
     }
-
 
     goToCategoryDetails(categoryName: string): void {
         this.router.navigate(['/portfolio2', categoryName]);

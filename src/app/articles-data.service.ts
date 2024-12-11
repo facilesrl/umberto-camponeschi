@@ -12,12 +12,10 @@ const httpOption = {
 })
 export class ArticlesDataService {
 
- 
 
     constructor(private http: HttpClient) {
        
     }
-
 
     private apiUrl_article = "http://local.umberto:8888/api/get_articles.php";
     private apiUrl_category = "http://local.umberto:8888/api/get_category.php";
