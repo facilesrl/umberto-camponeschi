@@ -1,12 +1,12 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef, Type, OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DynamicComponentRegistry } from '../dynamic.page.registry'; // Assicurati che il percorso sia corretto
+import { DynamicComponentRegistry } from '../dynamic.page.registry';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { HeaderPageComponent } from '../header-page/header-page.component';
-import { EventEmitter, Output } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
-import { HostListener } from '@angular/core';
+
+
 @Component({
     selector: 'app-dynamic-page',
     standalone: true,
@@ -20,7 +20,7 @@ export class DynamicPageComponent implements OnInit, AfterViewInit, OnDestroy {
     @ViewChild('dynamicContainer', { read: ViewContainerRef }) container!: ViewContainerRef;
     private routeSub: Subscription = new Subscription();
 
-    //@Output() componentNameChanged:EventEmitter<string>= new EventEmitter<string>();
+
 
     constructor(private route: ActivatedRoute, private router: Router) { }
 

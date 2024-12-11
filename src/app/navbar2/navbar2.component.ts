@@ -1,11 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { Component,ElementRef, ViewChildren, QueryList } from '@angular/core';
 import { RouterLink} from '@angular/router';
-import { CommonModule } from '@angular/common';
 
 import { PagesDataService } from '../pages-data.service';
 import { Page } from '../shared/models/page.model';
-
-
 
 interface PageDetailDB {
     nav_groupName: string;
@@ -32,13 +30,10 @@ export class Navbar2Component {
 
     constructor(private pagesDataService: PagesDataService) { }
 
-
     @ViewChildren('navItem') navItems!: QueryList<ElementRef>;
     // Array che contiene i nomi delle pagine dal registro
 
     ngOnInit(): void {
-
-        //test servizio 
 
         this.pagesDataService.getPages().subscribe(
             (data: Page[]) => {
@@ -51,7 +46,7 @@ export class Navbar2Component {
     pages_details_DB: PageDetailDB[] = [];
     page_detail_DB: PageDetailDB = { nav_groupName: '', page_name: '' };
     nav_details_DB: NavDetailDB[] = [];
-    //test finto db
+    //Metodo per il raggruppamento dei navItem in navgroup
     testDB() {
         console.log(this.pages, 'pagine da db');
         var nav_group_array: string[] = [];
@@ -115,7 +110,7 @@ export class Navbar2Component {
         this.findMaxWidth();
     }
 
-
+    //Metodo per la ricerca del nav-item container più largo. Applica poi stessa width a tutti i navItem
     findMaxWidth() {
         let max_width: number = 0;
 
@@ -143,16 +138,12 @@ export class Navbar2Component {
         });
     }
 
-
+    //metodi per il funzionamento del dropdown menu
     isDropdownOpen: { [key: number]: boolean } = {};
 
     toggleDropdown(index: number): void {
         // Toggle lo stato del dropdown specifico
         this.isDropdownOpen[index] = !this.isDropdownOpen[index];
     }
-
-
-
-
 
 }

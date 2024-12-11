@@ -1,21 +1,14 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ScrollNavbarDirective } from '../scroll-navbar.directive';
-import { DynamicComponentRegistry } from '../dynamic.page.registry';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';  // Importa FontAwesomeModule
-import { RouterModule } from '@angular/router';
+
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 
-import { CommonModule } from '@angular/common';
-import { ServiceDataService } from '../service-data.service';
-import { ElementRef,ViewChildren, QueryList} from '@angular/core';
 import { PagesDataService } from '../pages-data.service';
 import { Page } from '../shared/models/page.model';
-interface PageDetail {
-    nav_group_name: string;
-    pagesName: string[];
-}
 
 interface PageDetailDB {
     nav_group_name: string;
@@ -30,7 +23,11 @@ interface NavDetailDB {
 @Component({
     selector: 'app-navbar',
     standalone: true,
-    imports: [RouterLink, ScrollNavbarDirective, FontAwesomeModule, CommonModule,RouterModule],
+    imports: [CommonModule,
+        FontAwesomeModule,
+        RouterLink,
+        ScrollNavbarDirective],
+
     templateUrl: './navbar.component.html',
     styleUrl: './navbar.component.css'
 })
@@ -43,27 +40,25 @@ export class NavbarComponent {
 
     constructor(private pagesDataService: PagesDataService) { }
 
-
     @ViewChildren('navItem') navItems!: QueryList<ElementRef>;
-    // Array che contiene i nomi delle pagine dal registro
+
 
     ngOnInit(): void {
-       
-        //test servizio 
+
         this.pagesDataService.getPages().subscribe(
             (data: Page[]) => {
                 this.pages = data;
-                console.log(this.pages,'da servizion')
+                console.log(this.pages, 'da servizion')
                 this.testDB();
                 this.findMaxWidth();
             });
-
     }
 
     pages_details_DB: PageDetailDB[] = [];
     page_detail_DB: PageDetailDB = { nav_group_name: '', page_name: '' };
     nav_details_DB: NavDetailDB[] = [];
-    //test finto db
+
+    //Metodo per raggruppamento navItem in navGroup
     testDB() {
         console.log(this.pages, 'pagine da db');
         var nav_group_array: string[] = [];
@@ -123,50 +118,45 @@ export class NavbarComponent {
 
     }
 
-    /*ngOnInit(): void {
-        // Estrai i nomi delle pagine (le chiavi) dal registro
-        this.pages = Object.keys(DynamicComponentRegistry);
-    }*/
-        ngAfterViewInit() {
-            this.findMaxWidth();
-        }
-    
-    
-        findMaxWidth() {
-            let max_width: number = 0;
-    
-            this.navItems.toArray().forEach((item) => {
-                const element = item.nativeElement as HTMLElement;
-                const wasHidden = element.hidden;
-    
-                // Rimuovi il "hidden" temporaneamente per ottenere la larghezza reale
-                if (wasHidden) {
-                    element.hidden = false;
-                }
-    
-                const current_width = element.getBoundingClientRect().width;
-                max_width = Math.max(max_width, current_width);
-    
-                // Ripristina lo stato originale
-                if (wasHidden) {
-                    element.hidden = true;
-                }
-            });
-    
-            console.log(max_width, 'il massimo è');
-            this.navItems.toArray().forEach((item) => {
-                (item.nativeElement as HTMLElement).style.width = `${max_width}px`;
-            });
-        }
-    
-    
-        isDropdownOpen: { [key: number]: boolean } = {};
-    
-        toggleDropdown(index: number): void {
-            // Toggle lo stato del dropdown specifico
-            this.isDropdownOpen[index] = !this.isDropdownOpen[index];
-        }
-    
-    
-    
+
+    ngAfterViewInit() {
+        this.findMaxWidth();
+    }
+
+    //Metodo per ricerca del navItem con width maggiore. Poi applica stessa width a tutti navItem
+    findMaxWidth() {
+        let max_width: number = 0;
+
+        this.navItems.toArray().forEach((item) => {
+            const element = item.nativeElement as HTMLElement;
+            const wasHidden = element.hidden;
+
+            // Rimuovi il "hidden" temporaneamente per ottenere la larghezza reale
+            if (wasHidden) {
+                element.hidden = false;
+            }
+
+            const current_width = element.getBoundingClientRect().width;
+            max_width = Math.max(max_width, current_width);
+
+            // Ripristina lo stato originale
+            if (wasHidden) {
+                element.hidden = true;
+            }
+        });
+
+        console.log(max_width, 'il massimo è');
+        this.navItems.toArray().forEach((item) => {
+            (item.nativeElement as HTMLElement).style.width = `${max_width}px`;
+        });
+    }
+
+    //Metodi per funzionamento dropdown menu
+    isDropdownOpen: { [key: number]: boolean } = {};
+
+    toggleDropdown(index: number): void {
+        // Toggle lo stato del dropdown specifico
+        this.isDropdownOpen[index] = !this.isDropdownOpen[index];
+    }
+
 }
