@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ServiceDataService } from '../service-data.service';
 import { ActivatedRoute } from '@angular/router';
+import { ArticlesDataService } from '../articles-data.service';
+import { Article } from '../shared/models/article.model';
 
 @Component({
     selector: 'app-portfolio-details',
@@ -12,23 +13,37 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PortfolioDetailsComponent {
 
-    constructor(private route: ActivatedRoute,private serviceData: ServiceDataService) {}
+    constructor(private route: ActivatedRoute, 
+                private articleService:ArticlesDataService) 
+    { }
 
 
     //category: string = 'Viaggi';
-    articles: any[] = [];
-    selected_category: string=''
-    ngOnInit() {
-     
 
-                // Recupera la categoria dall'URL
-                this.route.paramMap.subscribe(params => {
-                    this.selected_category = params.get('category') || '';
-                    this.articles = this.serviceData.getArticlesByCategory(this.selected_category);
-                });
+    articles_db: Article[]=[];
+
+    selected_category: string = ''
+    ngOnInit() {
+        
+        console.log(this.articles_db,'articoli filtrati per category name')
+        // Recupera la categoria dall'URL
+        this.route.paramMap.subscribe(params => {
+            this.selected_category = params.get('category') || '';
+            this.loadArticles();
+        });
     }
 
-  
+    loadArticles(){
+        this.articleService.getArticlesByCategoryName(this.selected_category).subscribe((data:Article[])=>{
+            console.log(this.selected_category,'selected category dentro laod')
+            this.articles_db=data;
+            console.log(data,'consol log data');
+            console.log('stampa articoli db dentro load', this.articles_db)
+        })
+       
+    }
+
+
     //section_details: string[] = [];
     //number_details: number = 5;
 

@@ -26,11 +26,14 @@ export class DynamicPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngOnInit(): void {
         // Ascolta i cambiamenti della rotta e aggiorna il componente
+        
         this.routeSub = this.route.params.subscribe(params => {
+            
             this.componentName = params['componentName']; // 'componentName' è in realtà il nome della pagina
             console.log('Parametro componentName:', this.componentName);
             this.loadComponents(this.componentName);  // Carica i componenti quando il parametro è disponibile
             //this.componentNameChanged.emit(this.componentName);
+            
         });
     }
 

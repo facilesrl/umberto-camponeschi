@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { OnInit,OnChanges,SimpleChanges,ViewChild,ViewContainerRef,Type } from '@angular/core';
+import { OnInit, OnChanges, SimpleChanges, ViewChild, ViewContainerRef, Type } from '@angular/core';
 import { WorkshopLayout1Component } from './workshop-layout-1/workshop-layout-1.component';
 import { WorkshopLayout2Component } from './workshop-layout-2/workshop-layout-2.component';
-import { ServiceDataService } from '../service-data.service';
+import { ProjectDataService } from '../project-data.service';
+import { Project } from '../shared/models/project.model';
+
 @Component({
     selector: 'app-workshop',
     standalone: true,
-    imports: [ WorkshopLayout1Component,WorkshopLayout2Component],
+    imports: [WorkshopLayout1Component, WorkshopLayout2Component],
     templateUrl: './workshop.component.html',
     styleUrl: './workshop.component.css'
 })
@@ -31,21 +33,26 @@ export class WorkshopComponent {
         }
     }
 
-    constructor(private serviceData:ServiceDataService) {
+    constructor( private projectService: ProjectDataService) {
     }
 
     ngOnInit() {
         this.loadProduct(); // Carica i dati
-        setTimeout(() => { // Aspetta che i dati siano caricati
-            this.loadLayout(this.selectedLayout);
-        }, 0);
 
     }
 
-    project_array:any[]=[];
+    project_array: Project[] = [];
 
-    loadProduct(){
-        this.project_array=this.serviceData.getArticlesByProductTypeName('project');
+    loadProduct() {
+        //test servizio 
+        this.projectService.getProject().subscribe(
+            (data: Project[]) => {
+                this.project_array = data;
+                console.log(this.project_array, 'da servizion')
+                this.loadLayout(this.selectedLayout);
+
+            });
+
     }
 
     ngOnChanges(changes: SimpleChanges): void {
@@ -53,8 +60,7 @@ export class WorkshopComponent {
         this.loadLayout(this.selectedLayout);
     }
 
-    number_section:number = 5;
-    section_array:number[] = Array.from({ length: this.number_section }, (v, i) => i);
+
 
 
     loadLayout(layoutName: string): void {
@@ -65,9 +71,8 @@ export class WorkshopComponent {
         this.container.clear(); // Pulisce il contenitore
         const componentRef = this.container.createComponent(layoutComponent); // Crea il layout
         // Passa variabili come input al componente dinamico
-        componentRef.instance.section_array = this.section_array;
         componentRef.instance.project_array = this.project_array;
-        console.log(this.section_array)
+        console.log(this.project_array, 'dentro load laypout')
     }
 
 }

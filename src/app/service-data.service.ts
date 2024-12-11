@@ -21,6 +21,18 @@ interface Article {
     productType: ProductType;  // Ogni articolo ha anche un tipo di prodotto
 }
 
+interface Project {
+    id: number;
+    title: string;
+    description: string;
+    category: Category;  // Ogni articolo appartiene a una categoria
+    category_id: number;
+    productType: ProductType;  // Ogni articolo ha anche un tipo di prodotto
+    content?: string;  // Può contenere HTML o testo lungo
+    images?: string[]; // Array di immagini
+    video?: string[]; // Array di immagini
+}
+
 interface Page {
     id: number;
     name: string;
@@ -34,7 +46,6 @@ interface Page {
     subPages?: Page[]; // Nel caso volessi aggiungere delle sotto-pagine
     nav_groupName?: string; // opzionale
 }
-
 
 
 @Injectable({
@@ -103,25 +114,47 @@ export class ServiceDataService {
         },
         {
             id: 6,
-            name: 'workshop1',
-            title: 'workshop1',
+            name: 'project1',
+            title: 'project1',
             subtitle: 'I nostri workshop',
             description: 'Partecipa ai nostri workshop pratici.',
             shortDescription: 'Impara nuove abilità con noi.',
             slug: 'workshop',
             images: ['prova-header-foto.jpg'],
-            nav_groupName: 'workshop'
+            nav_groupName: 'project'
         },
         {
             id: 7,
-            name: 'workshop2',
-            title: 'workshop2',
+            name: 'project2',
+            title: 'project2',
             subtitle: 'I nostri workshop',
             description: 'Partecipa ai nostri workshop pratici.',
             shortDescription: 'Impara nuove abilità con noi.',
             slug: 'workshop',
             images: ['prova-header-foto.jpg'],
-            nav_groupName: 'workshop'
+            nav_groupName: 'project'
+        },
+        {
+            id: 8,
+            name: 'portfolioDetails',
+            title: 'portfolioDetails',
+            subtitle: 'I nostri workshop',
+            description: 'Partecipa ai nostri workshop pratici.',
+            shortDescription: 'Impara nuove abilità con noi.',
+            slug: 'portfolio-details',
+            images: ['prova-header-foto.jpg'],
+            nav_groupName: ''
+        },
+        {
+            id: 10,
+            name: 'projectDetails',
+            title: 'projectDetails',
+            subtitle: 'I nostri workshop',
+            description: 'Partecipa ai nostri workshop pratici.',
+            shortDescription: 'Impara nuove abilità con noi.',
+            slug: 'project-details',
+            images: ['prova-header-foto.jpg'],
+            nav_groupName: ''
         }
     ];
 
@@ -136,13 +169,13 @@ export class ServiceDataService {
 
     // Dati finti per le Categorie
     private categories: Category[] = [
-        { id: 0, name: 'Teatro', productType: this.productTypes[0] },
-        { id: 1, name: 'Viaggi', productType: this.productTypes[0] },
-        { id: 2, name: 'Borselli', productType: this.productTypes[0] },
-        { id: 3, name: 'Gatti', productType: this.productTypes[0] },
-        { id: 3, name: 'Video', productType: this.productTypes[3] },
-        { id: 4, name: 'Tutorial', productType: this.productTypes[3]  },
-        { id: 5, name: 'Luci Autocostruite', productType: this.productTypes[3] }
+        { id: 0, name: 'teatro', productType: this.productTypes[0] },
+        { id: 1, name: 'viaggi', productType: this.productTypes[0] },
+        { id: 2, name: 'borselli', productType: this.productTypes[0] },
+        { id: 3, name: 'gatti', productType: this.productTypes[0] },
+        { id: 3, name: 'video', productType: this.productTypes[3] },
+        { id: 4, name: 'tutorial', productType: this.productTypes[3] },
+        { id: 5, name: 'luci Autocostruite', productType: this.productTypes[3] }
         // { id: 4, name: 'Tecnologia', productType: this.productTypes[2] },
         // { id: 5, name: 'CSS Tutorial', productType: this.productTypes[2] }
     ];
@@ -162,12 +195,15 @@ export class ServiceDataService {
         { id: 10, title: 'sphynx', description: 'Foto scattate durante uno spettacolo teatrale', category: this.categories[3], category_id: this.categories[3].id, productType: this.productTypes[0] },
         { id: 11, title: 'siamese', description: 'Foto scattate durante uno spettacolo teatrale', category: this.categories[3], category_id: this.categories[3].id, productType: this.productTypes[0] },
         //
-        { id: 12, title: 'Costruire Luci LED', description: 'Progetto pratico per costruire luci LED', category: this.categories[5], category_id: this.categories[5].id, productType: this.productTypes[3] },
-        { id: 13, title: 'Video Workshop', description: 'Un workshop registrato su un tema specifico', category: this.categories[3], category_id: this.categories[3].id, productType: this.productTypes[3] }
         //{ id: 1, title: 'Video Workshop 1', description: 'Tutorial su come creare un sito web', category: this.categories[4], productType: this.productTypes[1] },
         //{ id: 2, title: 'Tutorial CSS', description: 'Introduzione alle basi del CSS', category: this.categories[5], productType: this.productTypes[2] },
         //{ id: 3, title: 'Foto Gatti 1', description: 'Foto di gatti simpatici', category: this.categories[1], productType: this.productTypes[0] }
     ];
+
+    private projects: Project[] = [
+        { id: 0, title: 'Costruire Luci LED', description: 'Progetto pratico per costruire luci LED', category: this.categories[5], category_id: this.categories[5].id, productType: this.productTypes[3], content: 'contenuto luci led', images: ['assets/images/prova-header-foto.jpg'] },
+        { id: 1, title: 'Video Workshop', description: 'Un workshop registrato su un tema specifico', category: this.categories[3], category_id: this.categories[3].id, productType: this.productTypes[3], content: 'contenuto luci led', images: ['assets/images/prova-header-foto.jpg'] }
+    ]
 
 
     //Simulazione chiamata API
@@ -204,8 +240,16 @@ export class ServiceDataService {
         return this.articles.filter(article => article.category_id === category_id);
     }
 
-    getArticlesByProductTypeName(productType: string):Article[]{
-        return this.articles.filter(article=> article.productType.name===productType);
+    getArticlesByProductTypeName(productType: string): Article[] {
+        return this.articles.filter(article => article.productType.name === productType);
+    }
+
+    getProjectAll(): Project[] {
+        return this.projects;
+    }
+
+    getProjectByName(projectName:string): Project []{
+        return this.projects.filter(project=>project.title === projectName);
     }
 
 }

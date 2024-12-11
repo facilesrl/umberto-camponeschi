@@ -1,0 +1,53 @@
+<nav appScrollNavbar id="navbar"
+    class="navbar navbar-expand-lg uc-navbar-bg uc-navbar-height position-properties w-100 bg-lighter navbar-open text-capitalize">
+    <div class="container-fluid">
+        <div id="uc-social-row" class="social-row">
+            <div id="uc-social-icon-containter" class="d-flex justify-content-end">
+                <fa-icon [icon]="faFacebook" class="uc-icon-color uc-icon-pd uc-icon-dim"></fa-icon>
+                <fa-icon [icon]="faInstagram" class="uc-icon-color uc-icon-pd uc-icon-dim"></fa-icon>
+            </div>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul id="nav-items-list"
+                class="navbar-nav my-2 my-lg-0 navbar-nav-scroll w-100 justify-content-evenly nav-item-font-properties"
+                style="--bs-scroll-height: 100px;">
+                <!-- Usa solo un ngFor -->
+                <li class="nav-item d-flex">
+                    <a routerLink="home" class="nav-link active uc-navbar-items-color" aria-current="page">Home</a>
+                </li>
+                <ng-container *ngFor="let page_detail of pages_details; index as i">
+                    <ng-container *ngIf="page_detail.nav_groupName===''">
+                        <li *ngFor="let pageName of page_detail.pagesName" class="nav-item">
+                            <a [routerLink]="['../',pageName]"
+                                class="nav-link active uc-navbar-items-color" aria-current="page">{{
+                                pageName| titlecase }}</a>
+                        </li>
+
+                    </ng-container>
+                    <ng-container *ngIf="page_detail.nav_groupName!=''">
+                        <div class="has-submenu nav-item">
+                            <a href="#" class="nav-link active uc-navbar-items-color" aria-current="page">
+                                {{ page_detail.nav_groupName }}
+                            </a>
+                            <ul class="p-0" class="uc-submenu submenu">
+                                <li *ngFor="let pageName of page_detail.pagesName" class="nav-item submenu-item">
+                                    <a [routerLink]="['../', pageName]"
+                                        class="nav-link active uc-navbar-items-color d-inline-block"
+                                        aria-current="page">
+                                        {{ pageName | titlecase }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                      
+                    </ng-container>
+                </ng-container>
+
+            </ul>
+        </div>
+    </div>
+</nav>

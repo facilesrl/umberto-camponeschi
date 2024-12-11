@@ -15,13 +15,13 @@ export class PortfolioCategoryLayout2Component {
 
     constructor(private router:Router){}
 
-    @Input() categorie_foto: any[] =[];
+    @Input() categories: any[] =[];
     ngOninit(){
-        console.log(this.categorie_foto, 'dentro layoput2 on init')
+        console.log(this.categories, 'dentro layoput2 on init')
     }
 
     ngAfterViewInit(){
-        console.log(this.categorie_foto, 'dentro layoput2 after init')
+        console.log(this.categories, 'dentro layoput2 after init')
     }
 
 

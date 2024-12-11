@@ -4,16 +4,17 @@ import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientMo
 
 import { AppComponent } from './app.component';
 import { Navbar2Component } from './navbar2/navbar2.component';
-
+import { SitePageService } from './pages-data.service';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+  
   ],
   imports: [
     BrowserModule,
-    HttpClientModule // Aggiungi qui
+    HttpClientModule, // Aggiungi qui
   ],
-  providers: [],
+  providers: [SitePageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

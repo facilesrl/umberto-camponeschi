@@ -1,12 +1,12 @@
 <div class="container-fluid portfolio-container d-flex justify-content-center">
     <div class="row d-flex w-100 mx-0">
-        <div *ngFor="let category of categorie_foto" class="col-6 py-5 px-0 d-flex">
-            <div (click)="goToCategoryDetails(category.name)" class="portfolio-image-container">
+        <div *ngFor="let category of categories" class="col-6 py-5 px-0 d-flex">
+            <div (click)="goToCategoryDetails(category.category_name)" class="portfolio-image-container">
                 <div class="overlay justify-content-center">
                     <div
                         class="portfolio-title-container w-100 h-100 d-flex justify-content-start align-content-center px-5">
                         <p class="text-uppercase">
-                            // categoria: {{category.name}}
+                            // categoria: {{category.category_name}}
                         </p>
                     </div>
 
@@ -16,5 +16,4 @@
 
         </div>
     </div>
-
 </div>

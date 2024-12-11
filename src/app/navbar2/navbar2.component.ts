@@ -1,19 +1,11 @@
-import { Component, ViewChildren, QueryList } from '@angular/core';
-import { DynamicComponentRegistry } from '../dynamic.page.registry';
-import { RouterLink } from '@angular/router';
+import { Component,ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { RouterLink} from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ElementRef } from '@angular/core';
-import { AfterViewInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
 
-import { ServiceDataService } from '../service-data.service';
+import { PagesDataService } from '../pages-data.service';
+import { Page } from '../shared/models/page.model';
 
-interface PageDetail {
-    nav_groupName: string;
-    pagesName: string[];
-}
+
 
 interface PageDetailDB {
     nav_groupName: string;
@@ -29,7 +21,7 @@ interface NavDetailDB {
 @Component({
     selector: 'app-navbar2',
     standalone: true,
-    imports: [CommonModule, RouterLink, RouterModule, HttpClientModule],
+    imports: [CommonModule, RouterLink],
     templateUrl: './navbar2.component.html',
     styleUrl: './navbar2.component.css'
 })
@@ -38,18 +30,21 @@ export class Navbar2Component {
 
     pages: any[] = [];
 
-    constructor(private serviceData: ServiceDataService) { }
+    constructor(private pagesDataService: PagesDataService) { }
 
 
     @ViewChildren('navItem') navItems!: QueryList<ElementRef>;
     // Array che contiene i nomi delle pagine dal registro
 
     ngOnInit(): void {
-       
+
         //test servizio 
-        this.serviceData.getPages().subscribe(data => {
-            this.pages = data;
-        });
+
+        this.pagesDataService.getPages().subscribe(
+            (data: Page[]) => {
+                this.pages = data;
+                console.log(this.pages,'da servizion')
+            });
         this.testDB();
     }
 

@@ -1,5 +1,6 @@
 import { Component,Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Project } from '../../shared/models/project.model';
 
 @Component({
   selector: 'app-workshop-layout-2',
@@ -10,7 +11,6 @@ import { CommonModule } from '@angular/common';
 })
 export class WorkshopLayout2Component {
 
-  @Input() section_array:string[]=[];
   @Input() project_array:any[]=[];
 
 }
