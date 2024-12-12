@@ -7,6 +7,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CustomPointerComponent } from './custom-pointer/custom-pointer.component';
 import { SplashScreenComponent } from './splash-screen/splash-screen.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './footer/footer.component';
 
 @Component({
     selector: 'app-root',
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     imports: [  RouterOutlet,
                 NavbarComponent, 
                 ScrollManagerComponent, 
+                FooterComponent,
                 FontAwesomeModule, 
                 CustomPointerComponent,
                 SplashScreenComponent,

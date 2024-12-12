@@ -1,0 +1,14 @@
+<div class="container-fluid p-0 ">
+    <div class="img-container-home2">
+        <img class="img-home2" src="assets/images/prova-header-foto.jpg" alt="">
+        <div class="img-home2-overlay"></div>
+    </div>
+    <div class="nav-home2 align-self-end d-flex"    
+      [style.transform]="'translateX(' + translateX + 'px)'">
+        <div *ngFor="let item of pagesName" class="nav-home2-item" #navItem>
+       
+            {{item}}
+           
+        </div>
+    </div>
+</div>
